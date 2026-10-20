@@ -12,7 +12,7 @@ export default function Home() {
         <span className="panel-index">01</span>
       </section>
       <section className="letter-panel panel-r" aria-label="Portrait of Ariq">
-        <Image src="/images/ariq-arko.jpg" alt="Ariq Arko outdoors at Dhaka Residential Model College" fill priority sizes="25vw" className="hero-portrait" />
+        <Image src="/images/ariq-arko.jpg" alt="Ariq Arko outdoors at Dhaka Residential Model College" fill priority sizes="(min-width: 768px) 34vw, 25vw" className="hero-portrait" />
         <div className="portrait-scrim" />
         <span className="hero-letter" aria-hidden="true">R</span>
         <span className="panel-index">02</span>
