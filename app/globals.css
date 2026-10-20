@@ -269,6 +269,14 @@ textarea.portfolio-input { resize: vertical; min-height: 168px; }
   .contact-orbit { min-width: 100px; }
   .contact-orbit > span { padding-inline: 12px; }
   .contact-arrow { margin-left: 6px; }
+  .landing { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); margin-inline: var(--page-gutter); border-inline: 1px solid var(--border); }
+  .letter-panel { border-right: 1px solid var(--border); }
+  .panel-i, .panel-q { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .hero-letter { font-size: clamp(112px, 35vw, 230px); }
+  .panel-a .hero-letter, .panel-i .hero-letter, .panel-q .hero-letter { top: 16%; }
+  .panel-r .hero-letter { top: 52%; }
+  .hero-identity, .hero-location, .hero-message, .hero-work { display: none; }
+  .panel-index { left: 8%; bottom: 8%; font-size: clamp(13px, 3.4vw, 22px); }
   .page-intro { padding-block: 40px; }
   .section-space { padding-block: 40px 56px; }
   .about-layout { grid-template-columns: 1fr; }
@@ -289,19 +297,6 @@ textarea.portfolio-input { resize: vertical; min-height: 168px; }
   .wordmark { font-size: 30px; min-width: 40px; }
   .search-trigger { width: 40px; }
   .landing { min-height: 510px; }
-  .hero-letter { font-size: 20.5vw; }
-  .panel-a .hero-letter { top: 33%; }
-  .panel-r .hero-letter { top: 45%; }
-  .panel-i .hero-letter { top: 12%; }
-  .panel-q .hero-letter { top: 55%; }
-  .hero-identity { left: 8px; right: 6px; top: 24px; font-size: 9px; line-height: 1.55; overflow-wrap: anywhere; }
-  .hero-identity span { display: none; }
-  .hero-location { left: 8px; right: 6px; bottom: 66px; font-size: 8px; line-height: 1.6; max-width: 75px; }
-  .panel-index { left: 8px; bottom: 20px; font-size: 10px; }
-  .hero-message { top: 49%; left: 8px; right: 6px; font-size: clamp(10px, 2.6vw, 15px); line-height: 1.6; letter-spacing: -.03em; }
-  .hero-work { top: 24px; left: 6px; right: 6px; }
-  .hero-work p { font-size: 8px; line-height: 1.7; overflow-wrap: anywhere; }
-  .hero-work-link { flex-direction: column; align-items: flex-start; font-size: 10px; line-height: 1.5; padding: 8px 6px; min-height: 64px; gap: 4px; margin-top: 16px; }
   .hero-portrait { object-position: 49% center; }
   .page-title { font-size: clamp(28px, 8vw, 47px); overflow-wrap: anywhere; }
   .section-title { font-size: clamp(25px, 6.7vw, 36px); }
