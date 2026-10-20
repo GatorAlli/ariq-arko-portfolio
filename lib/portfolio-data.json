@@ -1,0 +1,164 @@
+{
+  "experience": [
+    {
+      "date": "Sep \u2013 Oct 2026",
+      "role": "Intern, Creative & Media",
+      "org": "Freeland",
+      "body": "Worked on a Puja campaign, supported the launch of FL SHIFT, and contributed to creative direction, visual storytelling, and fashion campaign execution."
+    },
+    {
+      "date": "Nov 2025 \u2013 May 2026",
+      "role": "Joint Secretary",
+      "org": "DRMC Science Club",
+      "body": "Co-hosted the 17th DRMC National Science & Codeavour International Carnival 2026, welcoming 50,000+ visitors and 10,000+ participants. Hosted seven seminars and workshops and helped organize DRMC\u2019s inaugural TEDx Talk."
+    },
+    {
+      "date": "Jan 2025 \u2013 Jul 2026",
+      "role": "College Prefect",
+      "org": "Dhaka Residential Model College",
+      "body": "Selected from 40+ candidates to oversee 500+ students. Led weekly assemblies as Parade Commander and connected students, faculty, and prefect teams."
+    },
+    {
+      "date": "Mar 2024 \u2013 Present",
+      "role": "Founding President",
+      "org": "DAKKHINNO",
+      "body": "Founded a social organization and led eight community projects, including wall art, awareness campaigns, and food drives. Coordinated people and operations from the ground up."
+    },
+    {
+      "date": "Dec 2023 \u2013 Present",
+      "role": "Junior Executive, Production",
+      "org": "Duckpeon Digital",
+      "body": "Produced documentary films and short-form reels on a project basis. Contributed to campaigns for 10 Minute School, bKash, Pathao, and ARKA Fashion Week."
+    },
+    {
+      "date": "2023 \u2013 2025",
+      "role": "Production & Volunteering",
+      "org": "DRMC Events",
+      "body": "Contributed to six major national and international events across production, marketing, gaming, and operations. Hosted gaming tournaments and a DJ battle, produced promotional films, and coordinated event logistics."
+    }
+  ],
+  "awards": [
+    [
+      "2024",
+      "Cinematography competition winner",
+      "DRMC Intra-School / College Admission"
+    ],
+    [
+      "2023",
+      "2nd place / Project Display",
+      "Notre Dame Annual Science Festival & 32nd GKC"
+    ],
+    [
+      "2023",
+      "2nd place / Math Olympiad",
+      "8th DRMC National Language Festival"
+    ],
+    [
+      "2021",
+      "Football champion & top scorer",
+      "DRMC Inter-Class and Inter-House Tournament"
+    ],
+    [
+      "2021",
+      "2nd place / Wall Magazine",
+      "DRMC Intra Science Festival"
+    ],
+    [
+      "Year not listed",
+      "Bronze Level Holder",
+      "The Duke of Edinburgh\u2019s International Award"
+    ],
+    [
+      "Year not listed",
+      "Best Correspondent",
+      "Oxford International School Model United Nations"
+    ],
+    [
+      "Year not listed",
+      "Semi-finalist",
+      "Diamond Challenge"
+    ]
+  ],
+  "projects": [
+    {
+      "key": "Freeland",
+      "num": "01",
+      "title": "Fashion, told\nthrough film.",
+      "client": "Freeland",
+      "date": "2026",
+      "tag": "Creative & media",
+      "cover": "FREELAND\nIN MOTION",
+      "bg": "color/purple",
+      "on": "color/on-purple",
+      "role": "Intern, Creative & Media",
+      "body": "Creative and media work across a Puja campaign and the launch of sister concern FL SHIFT.",
+      "detail": "Contributed to campaign execution, visual storytelling, and creative direction within the fashion industry.",
+      "facts": [
+        "Puja campaign",
+        "FL SHIFT launch",
+        "Creative & media"
+      ],
+      "year": "September \u2013 October 2026"
+    },
+    {
+      "key": "Carnival",
+      "num": "02",
+      "title": "A stage for\n50,000 people.",
+      "client": "DRMC Science Club",
+      "date": "2026",
+      "tag": "Events & leadership",
+      "cover": "SCIENCE.\nCODE.\nCURIOSITY.",
+      "bg": "color/lime",
+      "on": "color/on-lime",
+      "role": "Joint Secretary / Co-host",
+      "body": "The 17th DRMC National Science & Codeavour International Carnival brought students and ideas together.",
+      "detail": "Collaborated with the panel on sponsors and institutional partners. The three-day event welcomed over 50,000 visitors, with 10,000+ participants across ten sectors on DRMC\u2019s campus.",
+      "facts": [
+        "50,000+ visitors",
+        "10,000+ participants",
+        "3 days / 10 sectors"
+      ],
+      "year": "November 2025 \u2013 May 2026"
+    },
+    {
+      "key": "Dakkhinno",
+      "num": "03",
+      "title": "Small actions.\nShared impact.",
+      "client": "DAKKHINNO",
+      "date": "2024 \u2013 Present",
+      "tag": "Community building",
+      "cover": "PEOPLE\nCOME\nFIRST.",
+      "bg": "color/purple",
+      "on": "color/on-purple",
+      "role": "Founding President",
+      "body": "A social organization built from the ground up around community awareness and direct relief.",
+      "detail": "Led eight projects including wall art initiatives and food drives. Managed operations, team coordination, and public awareness campaigns.",
+      "facts": [
+        "8 community projects",
+        "Awareness campaigns",
+        "Direct relief"
+      ],
+      "year": "March 2024 \u2013 Present"
+    },
+    {
+      "key": "Duckpeon",
+      "num": "04",
+      "title": "Stories for\nBangladesh.",
+      "client": "Duckpeon Digital",
+      "date": "2023 \u2013 Present",
+      "tag": "Content production",
+      "cover": "FRAME.\nEDIT.\nREPEAT.",
+      "bg": "color/surface",
+      "on": "color/text",
+      "role": "Junior Executive, Production",
+      "body": "Documentaries, campaign films, and short-form reels produced on a project basis.",
+      "detail": "Worked across content formats for 10 Minute School, bKash, Pathao, and ARKA Fashion Week. The CV describes production contributions; individual campaign credits and media are pending.",
+      "facts": [
+        "Documentary films",
+        "Short-form reels",
+        "Brand campaigns"
+      ],
+      "year": "December 2023 \u2013 Present"
+    }
+  ]
+}

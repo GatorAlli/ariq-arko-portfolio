@@ -1,0 +1,1 @@
+export default function Loading() { return <main id="main-content" className="loading-page page-padding" role="status"><span className="loading-mark" aria-hidden="true">aa.</span><p>Loading portfolio…</p></main>; }

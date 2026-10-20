@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
+    // Compile Tailwind v4 through the project's Turbopack loader.
     rules: {
       "*.css": {
         loaders: ["@tailwindcss/turbopack"],
