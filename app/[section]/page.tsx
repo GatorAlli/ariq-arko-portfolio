@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -15,7 +16,33 @@ export async function generateMetadata({ params }: { params: Promise<{ section: 
   return isPageSlug(section) ? { title: section === "work" ? "Recent work" : section[0].toUpperCase() + section.slice(1), description: pageInfo[section].intro } : {};
 }
 
-export default async function PortfolioPage({ params }: { params: Promise<{ section: string }> }) {
+export default function PortfolioPage({ params }: { params: Promise<{ section: string }> }) {
+  return <>
+    <Suspense fallback={<PortfolioSectionSkeleton />}>
+      <PortfolioSection params={params} />
+    </Suspense>
+    <SiteFooter />
+  </>;
+}
+
+function PortfolioSectionSkeleton() {
+  return <main id="main-content" aria-busy="true">
+    <PageIntro title="Ariq Arko" intro="Loading this section…" />
+    <section className="page-padding section-space" role="status" aria-label="Loading portfolio content">
+      <div className="grid gap-8 sm:grid-cols-2" aria-hidden="true">
+        <div className="min-h-72 border border-border bg-muted" />
+        <div className="space-y-6">
+          <div className="h-10 w-3/4 bg-muted" />
+          <div className="h-5 w-full bg-muted" />
+          <div className="h-5 w-full bg-muted" />
+          <div className="h-5 w-2/3 bg-muted" />
+        </div>
+      </div>
+    </section>
+  </main>;
+}
+
+async function PortfolioSection({ params }: { params: Promise<{ section: string }> }) {
   const { section } = await params;
   if (!isPageSlug(section)) notFound();
   const info = pageInfo[section];
@@ -38,6 +65,5 @@ export default async function PortfolioPage({ params }: { params: Promise<{ sect
       {section === "contact" ? <section className="contact-layout page-padding section-space"><div className="contact-copy"><h2 className="section-title">Let’s make<br />something matter.</h2><p>For hiring, creative projects, or research collaboration. Tell me what you have in mind.</p><a className="email-link" href={`mailto:${email}`}>{email} →</a><CopyEmail /></div><ContactForm /></section> : null}
     </main>
     {section !== "contact" ? <Conversation /> : null}
-    <SiteFooter />
   </>;
 }
