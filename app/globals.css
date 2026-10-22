@@ -90,14 +90,14 @@
 @supports (animation-timeline: scroll()) { .scroll-progress { animation: reading-progress linear both; animation-timeline: scroll(root); } }
 @keyframes reading-progress { to { transform: scaleX(1); } }
 
-.landing { height: calc(100svh - var(--header-height)); min-height: 560px; display: flex; }
+.landing { --panel-grow: 1; height: calc(100svh - var(--header-height)); min-height: 560px; display: flex; }
 @media screen and (hover: hover) and (pointer: fine) and (min-width: 768px) {
-  .landing:has(.letter-panel:hover) .letter-panel,
-  .landing:not(:has(.letter-panel:hover)):has(.panel-q:focus-within) .letter-panel { flex-grow: .88; }
-  .landing:has(.letter-panel:hover) .letter-panel:hover,
-  .landing:not(:has(.letter-panel:hover)) .panel-q:focus-within { flex-grow: 1.36; }
+  .landing:has(.letter-panel:hover),
+  .landing:not(:has(.letter-panel:hover)):has(.panel-q:focus-within) { --panel-grow: .88; }
+  .landing .letter-panel:hover,
+  .landing:not(:has(.letter-panel:hover)) .panel-q:focus-within { --panel-grow: 1.36; }
 }
-.letter-panel { position: relative; flex: 1 1 0; min-width: 0; overflow: hidden; border-right: 1px solid var(--border); transition: flex-grow 850ms cubic-bezier(.4, 0, .2, 1); }
+.letter-panel { position: relative; flex: var(--panel-grow) 1 0; min-width: 0; overflow: hidden; border-right: 1px solid var(--border); transition: flex-grow 850ms cubic-bezier(.4, 0, .2, 1); }
 .letter-panel:last-child { border-right: 0; }
 .hero-letter { position: absolute; left: 0; width: 100%; color: var(--primary); font-family: var(--font-gravitas), Georgia, serif; font-size: 19.75vw; font-weight: 400; line-height: 1.15; text-align: center; user-select: none; }
 .panel-a .hero-letter { top: 28%; }
