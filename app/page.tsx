@@ -12,9 +12,8 @@ export default function Home() {
         <p className={portfolioClass("hero-location")}>DHAKA, BANGLADESH</p>
         <span className={portfolioClass("panel-index")}>01</span>
       </section>
-      <section className={portfolioClass("letter-panel panel-r")} aria-label="Portrait of Ariq">
-        <Image src="/images/ariq-arko.jpg" alt="Ariq Arko outdoors at Dhaka Residential Model College" fill priority sizes="(min-width: 768px) 82vw, 120vw" className={portfolioClass("hero-portrait")} />
-        <div className={portfolioClass("portrait-scrim")} />
+      <section className={portfolioClass("letter-panel panel-r bg-[#142020]")} aria-label="Portrait of Ariq">
+        <Image src="/images/ariq-arko-cutout.png" alt="Black-and-white portrait of Ariq Arko wearing a suit" fill priority unoptimized sizes="(min-width: 768px) 82vw, 120vw" className={portfolioClass("hero-portrait")} />
         <span className={portfolioClass("hero-letter")} aria-hidden="true">R</span>
         <span className={portfolioClass("panel-index")}>02</span>
       </section>
