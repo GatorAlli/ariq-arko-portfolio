@@ -4,8 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 
-type Certificate = { label: string; image: string; pdf: string };
-type GalleryItem = { label: string; image?: string; pdf?: string; placeholder?: number };
+type Certificate = { id: string; label: string; image: string };
+type GalleryItem = { label: string; image?: string; placeholder?: number };
 
 function GalleryVisual({ item, thumbnail = false }: { item: GalleryItem; thumbnail?: boolean }) {
   if (item.image) return <Image src={item.image} alt={item.label} fill sizes={thumbnail ? "180px" : "(max-width: 767px) 90vw, 65vw"} className="object-contain" />;
@@ -20,7 +20,7 @@ function GalleryVisual({ item, thumbnail = false }: { item: GalleryItem; thumbna
 export function ExperienceGallery({ organization, certificates = [] }: { organization: string; certificates?: Certificate[] }) {
   const photos: GalleryItem[] = Array.from({ length: 3 }, (_, index) => ({ label: `${organization} / Behind the scenes ${index + 1}`, placeholder: index }));
   const items: GalleryItem[] = [...photos, ...certificates];
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(certificates.length ? photos.length : 0);
   const selected = items[selectedIndex];
 
   function thumbnail(item: GalleryItem, index: number) {
@@ -29,14 +29,14 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
     </button>;
   }
 
-  return <div role="group" aria-label={`${organization} image gallery`} className="mt-8 grid items-start gap-4 sm:grid-cols-[minmax(0,4fr)_minmax(90px,1fr)]">
+  return <div id={certificates[0]?.id} role="group" aria-label={`${organization} image gallery`} className="mt-8 scroll-mt-28 grid items-start gap-4 sm:grid-cols-[minmax(0,4fr)_minmax(90px,1fr)]">
     <div className="min-w-0">
       <div className="relative aspect-[16/10] overflow-hidden border border-border bg-card" aria-live="polite" aria-atomic="true">
         <div key={selectedIndex} className="absolute inset-0 animate-in fade-in duration-300 motion-reduce:animate-none"><GalleryVisual item={selected} /></div>
       </div>
       <div className="mt-3 flex flex-wrap items-start justify-between gap-2 text-xs text-muted-foreground">
         <p>{selected.label}</p>
-        {selected.pdf ? <a href={selected.pdf} target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4">Open certificate PDF ↗</a> : <span>{selectedIndex + 1} / {photos.length}</span>}
+        {selectedIndex < photos.length ? <span>{selectedIndex + 1} / {photos.length}</span> : null}
       </div>
     </div>
     <div className="min-w-0 space-y-4">

@@ -1,7 +1,7 @@
 {
   "experience": [
     {
-      "date": "Sep \u2013 Oct 2026",
+      "date": "Sep 2026",
       "role": "Intern, Creative & Media",
       "org": "Freeland",
       "body": "Worked on a Puja campaign, supported the launch of FL SHIFT, and contributed to creative direction, visual storytelling, and fashion campaign execution.",
@@ -9,82 +9,128 @@
         {
           "label": "Freeland / Certificate of Internship",
           "image": "/images/certificates/freeland-completion.png",
-          "pdf": "/documents/freeland-certificate-ariq-arko.pdf"
+          "id": "freeland-certificate"
         }
       ]
     },
     {
-      "date": "Nov 2025 \u2013 May 2026",
+      "date": "Nov 2025 – May 2026",
       "role": "Joint Secretary",
       "org": "DRMC Science Club",
-      "body": "Co-hosted the 17th DRMC National Science & Codeavour International Carnival 2026, welcoming 50,000+ visitors and 10,000+ participants. Hosted seven seminars and workshops and helped organize DRMC\u2019s inaugural TEDx Talk."
+      "body": "Earned the Joint Secretary role after three years of involvement across DRMC’s clubs, joining a competitive panel of student leaders.",
+      "highlights": [
+        "Co-hosted the 17th DRMC National Science & Codeavour International Carnival 2026: over 50,000 visitors across three days on the 52-acre campus, with 10,000+ participants competing in ten sectors.",
+        "Worked with the leadership panel to secure major sponsors and institutional partners.",
+        "Served as sole host for seven seminars and workshops, including co-organizing and hosting DRMC’s inaugural TEDx Talk."
+      ]
     },
     {
-      "date": "Jan 2025 \u2013 Jul 2026",
+      "date": "Jan 2025 – Jul 2026",
       "role": "College Prefect",
       "org": "Dhaka Residential Model College",
-      "body": "Selected from 40+ candidates to oversee 500+ students. Led weekly assemblies as Parade Commander and connected students, faculty, and prefect teams."
+      "body": "Selected from 40+ candidates to oversee 500+ college students at Dhaka Residential Model College, alongside its broader school campus.",
+      "highlights": [
+        "Commanded weekly assemblies as Parade Commander, maintained college discipline, and served as the primary bridge between students and faculty.",
+        "Coordinated with the Magazine, Prayer, Cultural, Games, and Elder prefects throughout the academic year."
+      ]
     },
     {
-      "date": "Mar 2024 \u2013 Present",
+      "date": "Mar 2024 – Present",
       "role": "Founding President",
       "org": "DAKKHINNO",
       "body": "Founded a social organization and led eight community projects, including wall art, awareness campaigns, and food drives. Coordinated people and operations from the ground up."
     },
     {
-      "date": "Dec 2023 \u2013 Present",
+      "date": "Dec 2023 – Present",
       "role": "Junior Executive, Production",
       "org": "Duckpeon Digital",
-      "body": "Produced documentary films and short-form reels on a project basis. Contributed to campaigns for 10 Minute School, bKash, Pathao, and ARKA Fashion Week."
+      "body": "Produced visual content on a project basis over 2+ years for 10 Minute School, bKash, Pathao, and ARKA Fashion Week. Delivered documentary films and short-form reels for digital marketing campaigns."
     },
     {
-      "date": "2023 \u2013 2025",
+      "date": "2023 – 2025",
       "role": "Production & Volunteering",
       "org": "DRMC Events",
-      "body": "Contributed to six major national and international events across production, marketing, gaming, and operations. Hosted gaming tournaments and a DJ battle, produced promotional films, and coordinated event logistics."
+      "body": "Contributed to six major DRMC national and international events across operations, marketing, content creation, production, and event management."
     }
   ],
   "awards": [
-    [
-      "2024",
-      "Cinematography competition winner",
-      "DRMC Intra-School / College Admission"
-    ],
-    [
-      "2023",
-      "2nd place / Project Display",
-      "Notre Dame Annual Science Festival & 32nd GKC"
-    ],
-    [
-      "2023",
-      "2nd place / Math Olympiad",
-      "8th DRMC National Language Festival"
-    ],
-    [
-      "2021",
-      "Football champion & top scorer",
-      "DRMC Inter-Class and Inter-House Tournament"
-    ],
-    [
-      "2021",
-      "2nd place / Wall Magazine",
-      "DRMC Intra Science Festival"
-    ],
-    [
-      "Year not listed",
-      "Bronze Level Holder",
-      "The Duke of Edinburgh\u2019s International Award"
-    ],
-    [
-      "Year not listed",
-      "Best Correspondent",
-      "Oxford International School Model United Nations"
-    ],
-    [
-      "Year not listed",
-      "Semi-finalist",
-      "Diamond Challenge"
-    ]
+    {
+      "id": "diamond-challenge",
+      "year": "",
+      "title": "Global semi-finalist",
+      "issuer": "Diamond Challenge",
+      "detail": "Ranked in the top 20 out of 1,846 teams worldwide."
+    },
+    {
+      "id": "cinematography",
+      "year": "2024",
+      "title": "1st place / Cinematography",
+      "issuer": "DRMC Intra-School Cinematography Competition",
+      "detail": "College Admission Video Competition; competed against 70+ video submissions from school and college students."
+    },
+    {
+      "id": "oxford-mun",
+      "year": "",
+      "title": "Best Delegate Award",
+      "issuer": "Oxford International Model United Nations",
+      "detail": "Represented the United Nations News Center; competed against 40+ delegates."
+    },
+    {
+      "id": "notre-dame",
+      "year": "2022",
+      "title": "2nd place / IT Project",
+      "issuer": "Notre Dame Annual Science Festival",
+      "detail": "Intermediate Level IT Project; competed against 150+ projects."
+    },
+    {
+      "id": "math-olympiad",
+      "year": "2023",
+      "title": "2nd place / Math Olympiad",
+      "issuer": "8th DRMC National Language Festival",
+      "detail": "Competed against 200+ participants."
+    },
+    {
+      "id": "photography",
+      "year": "2025",
+      "title": "2nd place / Photography",
+      "issuer": "Lumora National Photography Contest",
+      "detail": "Selected for a photograph taken at DRMC from a field of 1,000+ entries."
+    },
+    {
+      "id": "wall-magazine",
+      "year": "2021",
+      "title": "2nd place / Wall Magazine",
+      "issuer": "DRMC Intra Science Festival",
+      "detail": "Secondary Group Wall Magazine Competition; competed against 50+ teams."
+    },
+    {
+      "id": "acting",
+      "year": "2020",
+      "title": "3rd place / Group Acting",
+      "issuer": "DRMC Annual Cultural Competition",
+      "detail": "Performed live before an audience of 900+ people."
+    },
+    {
+      "id": "high-jump",
+      "year": "2019",
+      "title": "3rd place / High Jump",
+      "issuer": "DRMC Annual Sports",
+      "detail": "Competed against 30+ athletes."
+    },
+    {
+      "id": "english-olympiad",
+      "year": "",
+      "title": "3rd round qualifier",
+      "issuer": "English Olympiad / Season 3",
+      "detail": "Advanced through multiple stages against thousands of students nationwide."
+    },
+    {
+      "id": "football",
+      "year": "2021",
+      "title": "Football champion & top scorer",
+      "issuer": "DRMC Annual Inter-Class and Inter-House Football Tournament",
+      "detail": "Recognized as tournament champion and top scorer."
+    }
   ],
   "projects": [
     {
@@ -105,7 +151,7 @@
         "FL SHIFT launch",
         "Creative & media"
       ],
-      "year": "September \u2013 October 2026"
+      "year": "September 2026"
     },
     {
       "key": "Carnival",
@@ -119,20 +165,20 @@
       "on": "color/on-lime",
       "role": "Joint Secretary / Co-host",
       "body": "The 17th DRMC National Science & Codeavour International Carnival brought students and ideas together.",
-      "detail": "Collaborated with the panel on sponsors and institutional partners. The three-day event welcomed over 50,000 visitors, with 10,000+ participants across ten sectors on DRMC\u2019s campus.",
+      "detail": "Collaborated with the leadership panel to secure sponsors and institutional partners. The three-day event welcomed over 50,000 visitors, with 10,000+ participants across ten sectors on DRMC’s 52-acre campus.",
       "facts": [
         "50,000+ visitors",
         "10,000+ participants",
         "3 days / 10 sectors"
       ],
-      "year": "November 2025 \u2013 May 2026"
+      "year": "November 2025 – May 2026"
     },
     {
       "key": "Dakkhinno",
       "num": "03",
       "title": "Small actions.\nShared impact.",
       "client": "DAKKHINNO",
-      "date": "2024 \u2013 Present",
+      "date": "2024 – Present",
       "tag": "Community building",
       "cover": "PEOPLE\nCOME\nFIRST.",
       "bg": "color/purple",
@@ -145,27 +191,126 @@
         "Awareness campaigns",
         "Direct relief"
       ],
-      "year": "March 2024 \u2013 Present"
+      "year": "March 2024 – Present"
     },
     {
       "key": "Duckpeon",
       "num": "04",
       "title": "Stories for\nBangladesh.",
       "client": "Duckpeon Digital",
-      "date": "2023 \u2013 Present",
+      "date": "2023 – Present",
       "tag": "Content production",
       "cover": "FRAME.\nEDIT.\nREPEAT.",
       "bg": "color/surface",
       "on": "color/text",
       "role": "Junior Executive, Production",
       "body": "Documentaries, campaign films, and short-form reels produced on a project basis.",
-      "detail": "Worked across content formats for 10 Minute School, bKash, Pathao, and ARKA Fashion Week. The CV describes production contributions; individual campaign credits and media are pending.",
+      "detail": "Produced content on a project basis over 2+ years for 10 Minute School, bKash, Pathao, and ARKA Fashion Week, contributing documentary films and short-form reels to digital marketing campaigns.",
       "facts": [
         "Documentary films",
         "Short-form reels",
         "Brand campaigns"
       ],
-      "year": "December 2023 \u2013 Present"
+      "year": "December 2023 – Present"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "duke-of-edinburgh",
+      "title": "The Duke of Edinburgh’s International Award",
+      "issuer": "Bronze Standard",
+      "detail": "Achieved the Bronze Standard within six months."
+    },
+    {
+      "id": "mobile-photography",
+      "title": "Mobile Photography & Videography",
+      "issuer": "10 Minute School",
+      "detail": "Completed the certification course in mobile photography and videography."
+    },
+    {
+      "id": "freeland-internship",
+      "title": "Certificate of Internship",
+      "issuer": "Freeland / Creative & Media Production",
+      "detail": "Recognized for contributions to creative concepts, visual storytelling, video production, and brand-related creative projects.",
+      "href": "/experience#freeland-certificate"
+    }
+  ],
+  "events": [
+    {
+      "id": "games-sports",
+      "title": "3rd DRMC International Games & Sports Simulacra",
+      "detail": "Led a full marketing overhaul and produced strategic content that helped establish it as Bangladesh’s largest games carnival that year."
+    },
+    {
+      "id": "science-language",
+      "title": "14th National Science & 7th National Language Carnivals",
+      "detail": "Hosted three major gaming tournaments with prominent participants from Bangladesh’s gaming community."
+    },
+    {
+      "id": "tech-carnival",
+      "title": "7th International Tech Carnival",
+      "detail": "Managed auditorium operations, led content creation, and hosted the official DJ Battle."
+    },
+    {
+      "id": "science-carnival",
+      "title": "16th National Science Carnival",
+      "detail": "Coordinated wall magazine submissions and managed end-to-end event logistics."
+    },
+    {
+      "id": "ramadan-festival",
+      "title": "2nd National Ramadan Festival",
+      "detail": "Produced official promotional videos and social media reels."
+    }
+  ],
+  "participations": [
+    {
+      "id": "math-summit",
+      "year": "2024",
+      "title": "1st DRMC National Math Summit",
+      "detail": "Participated in the Math Olympiad segment."
+    },
+    {
+      "id": "science-codeavour",
+      "year": "2024",
+      "title": "15th DRMC National Science & Codeavour International Carnival",
+      "detail": "Participated with a wall magazine."
+    },
+    {
+      "id": "jlrc-language",
+      "year": "2023",
+      "title": "19th JLRC Language Festival",
+      "detail": "Active participant."
+    },
+    {
+      "id": "victory-day",
+      "year": "",
+      "title": "Victory Day Olympiad",
+      "detail": "Participated in the Olympiad organized by Remians Language Club."
+    },
+    {
+      "id": "nature-festival",
+      "year": "",
+      "title": "1st DRMC National Nature Festival",
+      "detail": "Participated in a wall magazine showcase."
+    },
+    {
+      "id": "bup-quiz",
+      "year": "2019",
+      "title": "BUP 2nd National Quiz Festival",
+      "detail": "Participated with a wall magazine."
+    },
+    {
+      "id": "science-2019",
+      "year": "2019",
+      "title": "12th DRMC National Science Carnival",
+      "detail": "Participated in the Project Display category."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "nepal-bungee",
+      "title": "Bungee jumping in Nepal",
+      "detail": "Completed a high-altitude bungee jump in Nepal."
     }
   ]
 }
