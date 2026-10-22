@@ -1,3 +1,4 @@
+import { portfolioClass } from "@/lib/portfolio-styles";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { SiteHeader } from "@/components/site-header";
@@ -20,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`dark ${poppins.variable} ${gravitas.variable} ${handwriting.variable}`}>
       <body>
-        <a href="#main-content" className="skip-link">Skip to content</a>
+        <a href="#main-content" className={portfolioClass("skip-link")}>Skip to content</a>
         <SiteHeader />
         {children}
       </body>
