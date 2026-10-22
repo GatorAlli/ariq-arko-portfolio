@@ -86,3 +86,10 @@
   body { font-size: 10pt; line-height: 1.5; background: white !important; color: black !important; }
   @page { margin: 18mm; }
 }
+
+@keyframes portrait-morph {
+  0%, 100% { border-radius: 60% 40% 35% 65% / 55% 40% 60% 45%; }
+  25% { border-radius: 45% 55% 60% 40% / 40% 60% 40% 60%; }
+  50% { border-radius: 35% 65% 55% 45% / 60% 35% 65% 40%; }
+  75% { border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%; }
+}
