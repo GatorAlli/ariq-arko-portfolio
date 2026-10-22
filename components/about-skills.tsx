@@ -48,25 +48,22 @@ export function AboutSkills() {
               </div>
             </article>
           ))}
-          <div className="pt-8">
-            <h3 className="text-[clamp(21px,1.9vw,30px)] font-medium leading-[1.4] tracking-[-.025em]">Languages</h3>
-            <p className="mt-4">Bangla / English / Hindi</p>
-          </div>
+
           </div>
         </div>
         <div className="flex flex-col">
           <h2 id="stack-heading" className={portfolioClass("section-title mb-10")}>My Stack</h2>
           <div className="flex flex-1 flex-col gap-4">
             {softwareGroups.map(group => (
-              <section key={group.label} aria-label={group.label} className={`flex flex-col border px-5 pt-5 sm:px-6 ${group.programs.length > 1 ? "flex-[2]" : "flex-1"} ${group.highlighted ? "border-primary bg-primary/10" : "border-border bg-card"}`}>
-                <h3 className="mb-1 text-xs font-medium uppercase tracking-[.1em]">{group.label}</h3>
-                <ul className="flex flex-1 flex-wrap gap-x-6">
+              <section key={group.label} aria-label={group.label} className={`flex flex-1 flex-col gap-4 border p-5 sm:p-6 ${group.highlighted ? "border-primary bg-primary/10" : "border-border bg-card"}`}>
+                <h3 className="text-lg font-semibold leading-tight tracking-[-.015em] sm:text-xl">{group.label}</h3>
+                <ul className="flex flex-wrap gap-x-6 gap-y-4">
                   {group.programs.map(program => (
-                    <li key={program.logo} className="flex min-w-0 flex-[1_1_210px] items-center gap-4 py-4">
-                      <Image src={`/images/software/${program.logo}.svg`} alt={`${program.name} logo`} width={48} height={48} className="size-12 shrink-0 object-contain" />
+                    <li key={program.logo} className="flex min-w-0 flex-[1_1_210px] items-center gap-4">
+                      <Image src={`/images/software/${program.logo}.svg`} alt={`${program.name} logo`} width={56} height={56} className="size-14 shrink-0 object-contain" />
                       <div className="min-w-0">
-                        <h4 className="text-base font-medium leading-snug">{program.name}</h4>
-                        <p className="mt-1 text-sm text-muted-foreground">{program.use}</p>
+                        <h4 className="text-lg font-medium leading-snug">{program.name}</h4>
+                        <p className="mt-1 text-base text-muted-foreground">{program.use}</p>
                       </div>
                     </li>
                   ))}
@@ -74,6 +71,10 @@ export function AboutSkills() {
               </section>
             ))}
           </div>
+        </div>
+        <div className="pt-2 text-center lg:col-span-2">
+          <h3 className="text-[clamp(24px,2vw,30px)] font-medium leading-[1.4] tracking-[-.025em]">Languages</h3>
+          <p className="mt-4">Bangla / English / Hindi</p>
         </div>
       </div>
     </section>
