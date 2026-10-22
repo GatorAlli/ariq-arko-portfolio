@@ -13,7 +13,7 @@ export default function Home() {
         <span className={portfolioClass("panel-index")}>01</span>
       </section>
       <section className={portfolioClass("letter-panel panel-r")} aria-label="Portrait of Ariq">
-        <Image src="/images/ariq-arko.jpg" alt="Ariq Arko outdoors at Dhaka Residential Model College" fill priority sizes="(min-width: 768px) 34vw, 25vw" className={portfolioClass("hero-portrait")} />
+        <Image src="/images/ariq-arko.jpg" alt="Ariq Arko outdoors at Dhaka Residential Model College" fill priority sizes="(min-width: 768px) 82vw, 120vw" className={portfolioClass("hero-portrait")} />
         <div className={portfolioClass("portrait-scrim")} />
         <span className={portfolioClass("hero-letter")} aria-hidden="true">R</span>
         <span className={portfolioClass("panel-index")}>02</span>

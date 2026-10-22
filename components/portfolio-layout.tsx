@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { FooterActions } from "@/components/page-actions";
 import { email } from "@/lib/portfolio";
 
-export function PageIntro({ title, intro, backHref = "/", backLabel = "Back" }: { title: string; intro: string; backHref?: string; backLabel?: string }) {
-  return <section className={portfolioClass("page-intro page-padding")}><Button asChild variant="outline" className={portfolioClass("editorial-button back-button")}><Link href={backHref}>← {backLabel}</Link></Button><h1 className={portfolioClass("page-title")}>{title}</h1><p className={portfolioClass("page-description")}>{intro}</p></section>;
+export function PageIntro({ title, intro }: { title: string; intro: string }) {
+  return <section className={portfolioClass("page-intro page-padding [&_.page-title]:mt-0!")}><h1 className={portfolioClass("page-title")}>{title}</h1><p className={portfolioClass("page-description")}>{intro}</p></section>;
 }
 
 export function Conversation() {

@@ -7,7 +7,6 @@ export const navigation = [
   { label: "Experience", href: "/experience" },
   { label: "Recent Work", href: "/work" },
   { label: "Awards", href: "/awards" },
-  { label: "Testimonials", href: "/testimonials" },
 ] as const;
 
 export const pageInfo = {
