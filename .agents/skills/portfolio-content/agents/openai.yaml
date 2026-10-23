@@ -1,0 +1,4 @@
+interface:
+  display_name: "Portfolio Content"
+  short_description: "Update portfolio records and source-backed content"
+  default_prompt: "Use $portfolio-content to update the portfolio records and related pages."

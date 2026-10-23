@@ -1,0 +1,4 @@
+interface:
+  display_name: "Portfolio Checks"
+  short_description: "Audit portfolio builds, routes, and user flows"
+  default_prompt: "Use $portfolio-checks to verify the portfolio and report actionable findings."

@@ -1,3 +1,16 @@
+# Project instructions
+
+BE SHORT AND CONCISE.
+
+- Work from this directory; the parent workspace is not the Git repository.
+- Read `README.md` for setup and file ownership, and `CONTENT-AUDIT.md` before changing biographical claims. `PROJECT-AUDIT.md` records findings, not automatic authorization to implement them.
+- Use the relevant local skill:
+  - Content, records, résumé, assets: [portfolio-content](.agents/skills/portfolio-content/SKILL.md).
+  - Layout, styling, components, interactions: [portfolio-ui](.agents/skills/portfolio-ui/SKILL.md).
+  - Audits, builds, routes, regression checks: [portfolio-checks](.agents/skills/portfolio-checks/SKILL.md).
+- Run checks appropriate to the change. Report actual results and any unverified behavior. Keep the npm lockfile in sync when dependencies change.
+- Preserve supplied facts, archived PDFs, font licenses, and logo attribution. Contact currently prepares an email draft; do not claim delivery.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

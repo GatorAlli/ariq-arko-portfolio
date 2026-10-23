@@ -1,0 +1,4 @@
+interface:
+  display_name: "Portfolio UI"
+  short_description: "Edit portfolio layouts, styles, and interactions"
+  default_prompt: "Use $portfolio-ui to update the portfolio interface and verify the affected layouts."
