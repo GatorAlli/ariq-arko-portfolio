@@ -2,9 +2,9 @@ import Image from "next/image";
 import { portfolioClass } from "@/lib/portfolio-styles";
 
 const skills = [
-  ["Storytelling", "Video editing / Cinematography / Content planning", "Documentary films, campaign content, and short-form reels."],
-  ["Bringing people together", "Event management / Hosting / Team coordination", "From auditorium operations to national carnivals and community projects."],
-  ["Community & leadership", "Student leadership / Social awareness / Project coordination", "Built through DAKKHINNO, the DRMC prefect team, and Science Club."],
+  ["CREATIVE", "Storytelling through film", "Film production · Cinematography · Content strategy", "I develop visual stories across documentaries, brand campaigns, and short-form content."],
+  ["COLLABORATION", "Turning ideas into experiences", "Event production · Hosting · Team coordination", "I work with people to bring campaigns, events, and shared ideas to life."],
+  ["INITIATIVE", "Building communities", "Student leadership · Social initiatives · Project coordination", "Through DAKKHINNO and student leadership, I’ve pursued opportunities to bring people together around a shared purpose."],
 ];
 
 const softwareGroups = [
@@ -38,9 +38,9 @@ export function AboutSkills() {
         <div className="flex flex-col">
           <h2 id="excel-heading" className={portfolioClass("section-title mb-10")}>What I excel at</h2>
           <div className="flex flex-1 flex-col justify-between">
-          {skills.map(([title, capabilities, copy], index) => (
-            <article key={title} className="grid grid-cols-[40px_minmax(0,1fr)] gap-4 border-b border-border py-8 first:pt-0 sm:gap-6">
-              <span className={portfolioClass("eyebrow pt-2")}>0{index + 1}</span>
+          {skills.map(([category, title, capabilities, copy], index) => (
+            <article key={title} className="border-b border-border py-8 first:pt-0">
+              <p className={portfolioClass("eyebrow mb-4")}>0{index + 1} · {category}</p>
               <div className="space-y-3">
                 <h3 className="text-[clamp(21px,1.9vw,30px)] font-medium leading-[1.4] tracking-[-.025em]">{title}</h3>
                 <p>{capabilities}</p>
@@ -74,7 +74,7 @@ export function AboutSkills() {
         </div>
         <div className="pt-2 text-center lg:col-span-2">
           <h3 className="text-[clamp(24px,2vw,30px)] font-medium leading-[1.4] tracking-[-.025em]">Languages</h3>
-          <p className="mt-4">Bangla / English / Hindi</p>
+          <p className="mt-4">Bangla · English · Hindi</p>
         </div>
       </div>
     </section>

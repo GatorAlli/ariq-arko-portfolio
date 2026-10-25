@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { portfolioClass } from "@/lib/portfolio-styles";
 
 // Shared by the full portfolio and résumé so every record stays in sync.
@@ -25,7 +24,7 @@ export function PortfolioRecords({ id, title, items, compact = false }: {
         <h3 className="text-lg font-medium sm:text-xl">{item.title}</h3>
         {item.issuer ? <p className="text-muted-foreground">{item.issuer}</p> : null}
         <p className="max-w-[75ch] leading-relaxed text-muted-foreground">{item.detail}</p>
-        {item.href ? <Link href={item.href} className="inline-flex min-h-11 items-center underline underline-offset-4">View certificate →</Link> : null}
+        {item.href ? <a href={item.href} className="inline-flex min-h-11 items-center underline underline-offset-4">View certificate</a> : null}
       </article>)}
     </div>
   </section>;

@@ -11,6 +11,10 @@ npm run dev
 
 Open the Local URL printed by Next.js. `npm run build` creates a production build; `npm start` serves it.
 
+This checkout restores the original published portfolio, including its photos, local fonts, rotating star, and animated satin background. Development and production builds use Webpack and the official Tailwind PostCSS integration to avoid a Turbopack worker crash on Windows. The original visual components and assets are preserved.
+
+The build exports all pages to `out/`. To preview that export locally, run `npm run dev -- --strictPort --port 4173` and open `http://localhost:4173`.
+
 ## Design
 
 - Onyx `#080F0F`, purple `#AA00FF`, lime `#C6FF00`, and porcelain `#FDFFFC`.

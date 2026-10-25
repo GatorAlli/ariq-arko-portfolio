@@ -18,7 +18,19 @@ function GalleryVisual({ item, thumbnail = false }: { item: GalleryItem; thumbna
 }
 
 export function ExperienceGallery({ organization, certificates = [] }: { organization: string; certificates?: Certificate[] }) {
-  const photos: GalleryItem[] = Array.from({ length: 3 }, (_, index) => ({ label: `${organization} / Behind the scenes ${index + 1}`, placeholder: index }));
+  const supplied: Record<string, GalleryItem[]> = {
+    "Dhaka Residential Model College": [
+      { label: "College Prefect · Appointment ceremony", image: "/images/experience/prefect-ceremony.jpg" },
+      { label: "College Prefect · The prefect team", image: "/images/experience/prefect-team.jpg" },
+      { label: "College Prefect · College assembly", image: "/images/experience/prefect-assembly.jpg" },
+    ],
+    "DRMC Science Club": [
+      { label: "DRMC Science Club · National Science Carnival team", image: "/images/experience/science-carnival.jpg" },
+      { label: "DRMC Science Club · Celebrating together", image: "/images/experience/science-celebration.jpg" },
+      { label: "DRMC Science Club · Club team", image: "/images/experience/science-team.jpg" },
+    ],
+  };
+  const photos: GalleryItem[] = supplied[organization] ?? Array.from({ length: 3 }, (_, index) => ({ label: `${organization} · Behind the scenes ${index + 1}`, placeholder: index }));
   const items: GalleryItem[] = [...photos, ...certificates];
   const [selectedIndex, setSelectedIndex] = useState(certificates.length ? photos.length : 0);
   const selected = items[selectedIndex];
@@ -36,7 +48,7 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
       </div>
       <div className="mt-3 flex flex-wrap items-start justify-between gap-2 text-xs text-muted-foreground">
         <p>{selected.label}</p>
-        {selectedIndex < photos.length ? <span>{selectedIndex + 1} / {photos.length}</span> : null}
+        {selectedIndex < photos.length ? <span>{selectedIndex + 1} of {photos.length}</span> : null}
       </div>
     </div>
     <div className="min-w-0 space-y-4">

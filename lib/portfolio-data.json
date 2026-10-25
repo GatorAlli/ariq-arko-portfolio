@@ -7,7 +7,7 @@
       "body": "Worked on a Puja campaign, supported the launch of FL SHIFT, and contributed to creative direction, visual storytelling, and fashion campaign execution.",
       "certificates": [
         {
-          "label": "Freeland / Certificate of Internship",
+          "label": "Freeland · Certificate of Internship",
           "image": "/images/certificates/freeland-completion.png",
           "id": "freeland-certificate"
         }
@@ -64,7 +64,7 @@
     {
       "id": "cinematography",
       "year": "2024",
-      "title": "1st place / Cinematography",
+      "title": "1st place · Cinematography",
       "issuer": "DRMC Intra-School Cinematography Competition",
       "detail": "College Admission Video Competition; competed against 70+ video submissions from school and college students."
     },
@@ -78,42 +78,42 @@
     {
       "id": "notre-dame",
       "year": "2022",
-      "title": "2nd place / IT Project",
+      "title": "2nd place · IT Project",
       "issuer": "Notre Dame Annual Science Festival",
       "detail": "Intermediate Level IT Project; competed against 150+ projects."
     },
     {
       "id": "math-olympiad",
       "year": "2023",
-      "title": "2nd place / Math Olympiad",
+      "title": "2nd place · Math Olympiad",
       "issuer": "8th DRMC National Language Festival",
       "detail": "Competed against 200+ participants."
     },
     {
       "id": "photography",
       "year": "2025",
-      "title": "2nd place / Photography",
+      "title": "2nd place · Photography",
       "issuer": "Lumora National Photography Contest",
       "detail": "Selected for a photograph taken at DRMC from a field of 1,000+ entries."
     },
     {
       "id": "wall-magazine",
       "year": "2021",
-      "title": "2nd place / Wall Magazine",
+      "title": "2nd place · Wall Magazine",
       "issuer": "DRMC Intra Science Festival",
       "detail": "Secondary Group Wall Magazine Competition; competed against 50+ teams."
     },
     {
       "id": "acting",
       "year": "2020",
-      "title": "3rd place / Group Acting",
+      "title": "3rd place · Group Acting",
       "issuer": "DRMC Annual Cultural Competition",
       "detail": "Performed live before an audience of 900+ people."
     },
     {
       "id": "high-jump",
       "year": "2019",
-      "title": "3rd place / High Jump",
+      "title": "3rd place · High Jump",
       "issuer": "DRMC Annual Sports",
       "detail": "Competed against 30+ athletes."
     },
@@ -121,7 +121,7 @@
       "id": "english-olympiad",
       "year": "",
       "title": "3rd round qualifier",
-      "issuer": "English Olympiad / Season 3",
+      "issuer": "English Olympiad · Season 3",
       "detail": "Advanced through multiple stages against thousands of students nationwide."
     },
     {
@@ -163,13 +163,13 @@
       "cover": "SCIENCE.\nCODE.\nCURIOSITY.",
       "bg": "color/lime",
       "on": "color/on-lime",
-      "role": "Joint Secretary / Co-host",
+      "role": "Joint Secretary · Co-host",
       "body": "The 17th DRMC National Science & Codeavour International Carnival brought students and ideas together.",
       "detail": "Collaborated with the leadership panel to secure sponsors and institutional partners. The three-day event welcomed over 50,000 visitors, with 10,000+ participants across ten sectors on DRMC’s 52-acre campus.",
       "facts": [
         "50,000+ visitors",
         "10,000+ participants",
-        "3 days / 10 sectors"
+        "3 days · 10 sectors"
       ],
       "year": "November 2025 – May 2026"
     },
@@ -230,7 +230,7 @@
     {
       "id": "freeland-internship",
       "title": "Certificate of Internship",
-      "issuer": "Freeland / Creative & Media Production",
+      "issuer": "Freeland · Creative & Media Production",
       "detail": "Recognized for contributions to creative concepts, visual storytelling, video production, and brand-related creative projects.",
       "href": "/experience#freeland-certificate"
     }

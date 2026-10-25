@@ -16,7 +16,7 @@ export const pageInfo = {
   work: { title: "Work with\npeople in it.", intro: "Selected contributions across film, fashion, events, and community." },
   awards: { title: "Recognition\nalong the way.", intro: "Honors, certifications, and competition experience across film, science, language, and sport." },
   testimonials: { title: "People make\nthe work.", intro: "A place for references and words from collaborators." },
-  contact: { title: "Start a\nconversation.", intro: "Hiring, projects, research, or a good idea." },
+  contact: { title: "Get in touch", intro: "Hiring, projects, research, or a good idea." },
 } as const;
 
 export type PageSlug = keyof typeof pageInfo;
@@ -25,7 +25,7 @@ export const searchEntries = [
   { label: "Home", href: "/", description: "Ariq Arko, content creator and community builder" },
   ...navigation.map(item => ({ ...item, description: pageInfo[item.href.slice(1) as PageSlug].intro })),
   { label: "Skills", href: "/about#skills", description: "Storytelling, video editing, cinematography, content planning, event management, hosting, team coordination, community, leadership, Bangla, English, Hindi" },
-  { label: "Contact", href: "/contact", description: "Hiring, projects, research and collaboration" },
+  { label: "Get in touch", href: "/contact", description: "Hiring, projects, research and collaboration" },
   ...projects.map(p => ({ label: p.client, href: `/work/${p.key.toLowerCase()}`, description: `${p.role} ${p.body} ${p.detail}` })),
   { label: "Résumé", href: "/resume", description: "Education, experience, awards, certifications and event participation" },
   ...awards.map(item => ({ label: `${item.title} · ${item.issuer}`, href: `/awards#${item.id}`, description: `${item.year} ${item.detail}` })),
