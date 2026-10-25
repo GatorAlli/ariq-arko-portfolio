@@ -1,6 +1,6 @@
 # Ariq Arko Portfolio
 
-A dark-only portfolio built with Next.js App Router, TypeScript, Tailwind CSS v4, and customized shadcn/ui components.
+A single-page portfolio for university applications, built with Next.js, TypeScript, Tailwind CSS, and customized shadcn/ui components.
 
 ## Run locally
 
@@ -9,34 +9,40 @@ npm install
 npm run dev
 ```
 
-Open the Local URL printed by Next.js. `npm run build` creates a production build; `npm start` serves it.
+Open the local URL printed by Next.js. Development uses Webpack and the official Tailwind PostCSS integration for Windows compatibility.
 
-This checkout restores the original published portfolio, including its photos, local fonts, rotating star, and animated satin background. Development and production builds use Webpack and the official Tailwind PostCSS integration to avoid a Turbopack worker crash on Windows. The original visual components and assets are preserved.
+For the static preview:
 
-The build exports all pages to `out/`. To preview that export locally, run `npm run dev -- --strictPort --port 4173` and open `http://localhost:4173`.
+```sh
+npm run build
+npm start
+```
+
+The build exports the website to `out/`. The preview runs at `http://localhost:4173` and supports video byte ranges.
+
+## One-page structure
+
+The landing page contains the introduction, selected achievements, About and skills, Experience, Recent Work, Awards, and Contact. About me includes the résumé popup and download. Navigation and search target `/#section` anchors. Project details appear only after View project is chosen. View résumé opens the actual PDF in an accessible popup on the main page, and Download PDF saves it. Old page URLs forward to their matching section.
+
+The presentation prioritizes verified roles, dates, achievements, and outcomes. Important numerical evidence is emphasized. Repeated introductory text and empty photo placeholders are omitted.
 
 ## Design
 
-- Onyx `#080F0F`, purple `#AA00FF`, lime `#C6FF00`, and porcelain `#FDFFFC`.
-- Gravitas One for display type, Poppins for body text, Neonderthaw available for handwriting.
-- Landing page introduces Ariq with a portrait, selected links, and creative toolkit.
-- Purple Contact button has a rotating conic-gradient border and restrained glow. Reduced motion shows a static border.
-- No light theme or theme toggle.
+The site uses a dark purple palette, Gravitas One for the identity, Sora for body text and bold Barlow Condensed for main section titles, and IBM Plex Mono navigation. Inter and Space Grotesk are prohibited. Hover text stays stationary while arrow icons rotate in place. Repeated records use spacing and columns instead of divider lines. The original portrait animation and star placement are retained. Curved chapter separators and one-time heading reveals provide restrained motion. Reduced motion uses still media, static curves, and immediately visible headings. The foundation brief is recorded in `docs/design-foundation.md`.
 
-## Pages and content
+## Content and components
 
-`/about`, `/experience`, `/skills` (redirects to `/about#skills`), `/work`, `/awards`, `/testimonials`, `/contact`, and `/resume` are available alongside four individual project pages under `/work/`.
-
-Edit experience, awards, certifications, event contributions, competition participation, milestones, and projects in `lib/portfolio-data.json`. Page titles, descriptions, navigation, and search entries are in `lib/portfolio.ts`. Testimonials use an empty state until real references are available. Awards, certifications, events, and milestones are shared with the online résumé and site search.
-
-The original résumé PDF is a source archive and can differ from the updated online résumé; the résumé page explains this and supports printing the current version.
-
-The portrait and original résumé are local files under `public/images/` and `public/documents/`. Experience and project images currently use the labeled `PhotoPlaceholder` component. Replace individual placeholders with `next/image` when real media is supplied, retaining their aspect ratio and meaningful alt text.
+- `lib/portfolio-data.json`: experience, awards, projects, events, and certifications.
+- `lib/portfolio.ts`: navigation, section introductions, contact details, and search entries.
+- `components/portfolio-section.tsx`: the main content sections.
+- `components/project-showcase.tsx`: selected work and inline case details.
+- `components/resume-viewer.tsx`: the actual résumé PDF popup used in About me.
+- `components/single-page-navigation.tsx`: expands details when following a project anchor.
+- `public/images/` and `public/media/`: local photos, artwork, and animations.
+- `docs/media-quality.md`: background generation prompt and media encoding details.
 
 ## Interactions
 
-- Site search works across pages, projects, and experience; open it with the search button or Cmd/Ctrl K.
-- Responsive navigation uses an accessible dialog, supports Escape, and restores focus.
-- Contact validates required fields and prepares a mailto draft. Visitors send the draft in their own email app. No message is stored or sent by this website, and no email provider credentials are configured.
-- Résumé download, email copy, back-to-top, a scroll progress indicator, loading state, and black-and-white print styles are included.
-- shadcn configuration is in `components.json`; reusable UI primitives are in `components/ui/`.
+Search opens with Ctrl K or Cmd K. Only the navigation stays sticky, with a small moving scroll-progress marker; the framed identity scrolls away. Mobile navigation has an expandable menu. Image galleries support keyboard selection. A floating arrow icon returns to the top after the introduction. Contact validates the required fields and prepares an email draft for the visitor to send. The website does not store or send messages.
+
+The résumé popup uses high-resolution pages rendered directly from the original PDF, with zoom and scrolling. The source PDF remains downloadable. After replacing the PDF, regenerate previews using `scripts/render-resume.py` with Python, pypdfium2, and Pillow.

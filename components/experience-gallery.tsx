@@ -30,10 +30,11 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
       { label: "DRMC Science Club · Club team", image: "/images/experience/science-team.jpg" },
     ],
   };
-  const photos: GalleryItem[] = supplied[organization] ?? Array.from({ length: 3 }, (_, index) => ({ label: `${organization} · Behind the scenes ${index + 1}`, placeholder: index }));
+  const photos: GalleryItem[] = supplied[organization] ?? [];
   const items: GalleryItem[] = [...photos, ...certificates];
   const [selectedIndex, setSelectedIndex] = useState(certificates.length ? photos.length : 0);
   const selected = items[selectedIndex];
+  if (!selected) return null;
 
   function thumbnail(item: GalleryItem, index: number) {
     return <button key={item.label} type="button" aria-label={`Preview ${item.label}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={`relative aspect-video min-w-0 overflow-hidden border transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${selectedIndex === index ? "border-primary/70" : "border-border hover:border-primary/50"}`}>
@@ -43,16 +44,12 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
 
   return <div id={certificates[0]?.id} role="group" aria-label={`${organization} image gallery`} className="mt-8 scroll-mt-28 grid items-start gap-4 sm:grid-cols-[minmax(0,4fr)_minmax(90px,1fr)]">
     <div className="min-w-0">
-      <div className="relative aspect-[16/10] overflow-hidden border border-border bg-card" aria-live="polite" aria-atomic="true">
+      <div className="relative aspect-[16/10] overflow-hidden bg-card" aria-live="polite" aria-atomic="true">
         <div key={selectedIndex} className="absolute inset-0 animate-in fade-in duration-300 motion-reduce:animate-none"><GalleryVisual item={selected} /></div>
-      </div>
-      <div className="mt-3 flex flex-wrap items-start justify-between gap-2 text-xs text-muted-foreground">
-        <p>{selected.label}</p>
-        {selectedIndex < photos.length ? <span>{selectedIndex + 1} of {photos.length}</span> : null}
       </div>
     </div>
     <div className="min-w-0 space-y-4">
-      <div className="grid grid-cols-3 gap-3 sm:grid-cols-1" aria-label="Experience photos">{photos.map(thumbnail)}</div>
+      {photos.length ? <div className="grid grid-cols-3 gap-3 sm:grid-cols-1" aria-label="Experience photos">{photos.map(thumbnail)}</div> : null}
       {certificates.length ? <div className="space-y-3"><h3 className="text-xs font-medium tracking-wide">Certification</h3><div className="grid grid-cols-3 gap-3 sm:grid-cols-1">{certificates.map((item, index) => thumbnail(item, photos.length + index))}</div></div> : null}
     </div>
   </div>;

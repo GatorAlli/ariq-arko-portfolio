@@ -5,11 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 import { FabricBackground } from "@/components/fabric-background";
 import "./globals.css";
 
-const poppins = localFont({ src: [
-  { path: "./fonts/poppins-regular.ttf", weight: "400", style: "normal" },
-  { path: "./fonts/poppins-medium.ttf", weight: "500", style: "normal" },
-  { path: "./fonts/poppins-semibold.ttf", weight: "600", style: "normal" },
-], variable: "--font-poppins", display: "swap" });
+const bodyFont = localFont({ src: "./fonts/sora-variable.ttf", variable: "--font-body", weight: "100 800", display: "swap" });
+const chapterFont = localFont({ src: "./fonts/barlow-condensed-bold.ttf", variable: "--font-chapter", weight: "700", display: "swap" });
 const gravitas = localFont({ src: "./fonts/gravitas-one.ttf", variable: "--font-gravitas", weight: "400", display: "swap" });
 const handwriting = localFont({ src: "./fonts/neonderthaw.ttf", variable: "--font-handwriting", weight: "400", display: "swap", preload: false });
 
@@ -22,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`dark ${poppins.variable} ${gravitas.variable} ${handwriting.variable} ${navMono.variable}`}>
+    <html lang="en" className={`dark ${bodyFont.variable} ${chapterFont.variable} ${gravitas.variable} ${handwriting.variable} ${navMono.variable}`}>
       <body>
         <FabricBackground />
         <a href="#main-content" className={portfolioClass("skip-link")}>Skip to content</a>

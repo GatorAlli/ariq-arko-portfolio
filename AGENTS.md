@@ -32,8 +32,22 @@ Before the final response, run one reporting pass. If candidates remain, from th
 ## Typography preferences
 
 - Never use Inter or Space Grotesk in this project, including font imports and fallback stacks.
-- Preserve the established Poppins, Gravitas One, and IBM Plex Mono typography unless the user requests another font.
+- Use bold uppercase Barlow Condensed in pale violet for main chapter titles, following the user-requested stronger title exploration. Use Sora for body text and secondary headings. Preserve Gravitas One for the framed identity and IBM Plex Mono for navigation. Never clip descenders during heading reveals.
 
 ## Copy preferences
 
 - Avoid em dashes in visible website copy. Prefer a full stop, comma, colon, or parentheses. If an em dash is specifically necessary, use no more than one per sentence.
+
+## Portfolio direction
+
+- Keep the portfolio on one main page. Navigation and search must target its section anchors; old page URLs should forward to the matching section.
+- Prioritize a university admissions reader: show verified achievements, roles, dates, and outcomes clearly, and avoid repeated copy or empty media placeholders.
+- Keep hover text stationary. Do not translate words upward or sideways. Use restrained color changes and in-place arrow-icon rotations instead of navigation underlines.
+- On desktop, keep the gap from the wordmark to Explore equal to the gap from the final social link to Get in touch.
+- Use large unnumbered section headings with clear, direct titles. Omit the short descriptions to their right and keep the fabric background continuous. Reduce decorative dividers and box outlines; separate repeated records with typography, spacing, and balanced columns.
+- Back to top is a floating arrow icon with an accessible label and no visible text. It appears after scrolling beyond the introduction.
+- Keep only navigation sticky. The framed name and star scroll away normally. Show reading progress with a small moving violet marker and short trail. Mobile navigation uses a compact expandable menu.
+- Keep navbar arrows visible at the top, hide them while scrolled, and restore them on return to the top. Reserve their space so links do not shift; keep every link clickable in both states.
+- Résumé access belongs in About me, with View résumé opening a zoomable popup of the original PDF pages and Download PDF saving the source. Do not add a separate Résumé section.
+- Avoid decorative numbered category kickers such as "01 · Creative" in skills, projects, and section headers. Use meaningful headings directly.
+- The user's `message (1).txt` is the foundation brief. See `docs/design-foundation.md` for its portfolio-specific requirements. Use restrained animated curves and clearly distinct chapter openings, with a static reduced-motion alternative.

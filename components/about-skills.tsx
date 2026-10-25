@@ -2,9 +2,9 @@ import Image from "next/image";
 import { portfolioClass } from "@/lib/portfolio-styles";
 
 const skills = [
-  ["CREATIVE", "Storytelling through film", "Film production · Cinematography · Content strategy", "I develop visual stories across documentaries, brand campaigns, and short-form content."],
-  ["COLLABORATION", "Turning ideas into experiences", "Event production · Hosting · Team coordination", "I work with people to bring campaigns, events, and shared ideas to life."],
-  ["INITIATIVE", "Building communities", "Student leadership · Social initiatives · Project coordination", "Through DAKKHINNO and student leadership, I’ve pursued opportunities to bring people together around a shared purpose."],
+  ["Storytelling through film", "Film production · Cinematography · Content strategy", "I develop visual stories across documentaries, brand campaigns, and short-form content."],
+  ["Turning ideas into experiences", "Event production · Hosting · Team coordination", "I work with people to bring campaigns, events, and shared ideas to life."],
+  ["Building communities", "Student leadership · Social initiatives · Project coordination", "Through DAKKHINNO and student leadership, I’ve pursued opportunities to bring people together around a shared purpose."],
 ];
 
 const softwareGroups = [
@@ -30,15 +30,14 @@ const softwareGroups = [
 
 export function AboutSkills() {
   return (
-    <section id="skills" aria-labelledby="excel-heading stack-heading" className={portfolioClass("page-padding section-space border-t border-border")}>
-      <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="skills" aria-labelledby="excel-heading stack-heading" className={portfolioClass("page-padding section-space")}>
+      <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
         <div className="flex flex-col">
-          <h2 id="excel-heading" className={portfolioClass("section-title mb-10")}>What I excel at</h2>
-          <div className="flex flex-1 flex-col justify-between">
-          {skills.map(([category, title, capabilities, copy], index) => (
-            <article key={title} className="border-b border-border py-8 first:pt-0">
-              <p className={portfolioClass("eyebrow mb-4")}>0{index + 1} · {category}</p>
-              <div className="space-y-3">
+          <h2 id="excel-heading" className={portfolioClass("section-title mb-6")}>What I excel at</h2>
+          <div className="flex flex-col gap-7">
+          {skills.map(([title, capabilities, copy]) => (
+            <article key={title}>
+              <div className="space-y-2">
                 <h3 className="text-[clamp(21px,1.9vw,30px)] font-medium leading-[1.4] tracking-[-.025em]">{title}</h3>
                 <p>{capabilities}</p>
                 <p className="text-muted-foreground">{copy}</p>
@@ -49,10 +48,10 @@ export function AboutSkills() {
           </div>
         </div>
         <div className="flex flex-col">
-          <h2 id="stack-heading" className={portfolioClass("section-title mb-10")}>My Stack</h2>
-          <div className="flex flex-1 flex-col gap-4">
+          <h2 id="stack-heading" className={portfolioClass("section-title mb-6")}>My Stack</h2>
+          <div className="flex flex-col gap-4">
             {softwareGroups.map(group => (
-              <section key={group.label} aria-label={group.label} className="flex flex-1 flex-col gap-4 border border-border bg-card p-5 sm:p-6">
+              <section key={group.label} aria-label={group.label} className="flex flex-col gap-4 bg-card p-5 sm:p-6">
                 <h3 className="text-lg font-semibold leading-tight tracking-[-.015em] sm:text-xl">{group.label}</h3>
                 <ul className="flex flex-wrap gap-x-6 gap-y-4">
                   {group.programs.map(program => (
@@ -68,10 +67,10 @@ export function AboutSkills() {
               </section>
             ))}
           </div>
-        </div>
-        <div className="pt-2 text-center lg:col-span-2">
-          <h3 className="text-[clamp(24px,2vw,30px)] font-medium leading-[1.4] tracking-[-.025em]">Languages</h3>
-          <p className="mt-4">Bangla · English · Hindi</p>
+          <div className="languages-block">
+            <h3>Languages</h3>
+            <ul aria-label="Languages"><li>Bangla</li><li>English</li><li>Hindi</li></ul>
+          </div>
         </div>
       </div>
     </section>

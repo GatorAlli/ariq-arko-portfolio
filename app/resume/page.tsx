@@ -1,11 +1,4 @@
-import { portfolioClass } from "@/lib/portfolio-styles";
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { PageIntro, SiteFooter } from "@/components/portfolio-layout";
-import { PortfolioRecords } from "@/components/portfolio-records";
-import { certifications, events, participations, milestones, awards, email, phone, experience } from "@/lib/portfolio";
-
+import { SectionRedirect } from "@/components/section-redirect";
 export const metadata: Metadata = { title: "Résumé" };
-export default function ResumePage() {
-  return <><main id="main-content" className="resume-page"><PageIntro title="Ariq Arko" intro="Content creator, student leader & community builder · Dhaka, Bangladesh" /><section className={portfolioClass("page-padding resume-content")}><div className={portfolioClass("resume-actions flex flex-wrap items-center gap-4")}><Button asChild className={portfolioClass("editorial-button lime-button")}><a href="/documents/ariq-arko-resume.pdf" download>Download résumé (PDF)</a></Button></div><p className="text-sm text-muted-foreground">This online résumé includes the latest portfolio updates. The downloadable PDF is the original résumé and may differ from this updated version.</p><p><a href={`mailto:${email}`}>{email}</a> · <a href={phone.href}>{phone.label}</a></p><h2 className={portfolioClass("section-title")}>Experience</h2>{experience.map(item => <article key={item.org} className={portfolioClass("resume-entry")}><p className={portfolioClass("eyebrow")}>{item.date}</p><h3>{item.role} · {item.org}</h3><p>{item.body}</p><ul className="ml-5 mt-3 list-disc space-y-2">{("highlights" in item ? item.highlights ?? [] : []).map(highlight => <li key={highlight}>{highlight}</li>)}</ul></article>)}<h2 className={portfolioClass("section-title")}>Education</h2><p>Dhaka Residential Model College · Grade 3 through HSC 2026<br />Previously: Scholars School &amp; College · Grades 1–3</p><PortfolioRecords compact id="honors" title="Awards & recognition" items={awards} /><PortfolioRecords compact id="certifications" title="Awards & certifications" items={certifications} /><PortfolioRecords compact id="event-contributions" title="Volunteer leadership & events" items={events} /><PortfolioRecords compact id="participations" title="Event participation & competitions" items={participations} /><PortfolioRecords compact id="personal-milestones" title="Personal milestones" items={milestones} /></section></main><SiteFooter /></>;
-}
+export default function ResumePage() { return <SectionRedirect target="/#resume-full" />; }
