@@ -54,7 +54,7 @@ export function SiteHeader() {
 {pathname === "/" ? (<div className="name-selection header-name-selection">
           <RotatingStar className="masthead-star" />
           <h1 className="masthead-name">ARIQ ARKO</h1>
-          {["nw", "n", "ne", "w", "e", "sw", "s", "se"].map(position => <span key={position} className={`selection-handle handle-${position}`} aria-hidden="true" />)}
+          {["nw", "ne", "sw", "se"].map(position => <span key={position} className={`selection-handle handle-${position}`} aria-hidden="true" />)}
           <svg className="selection-cursor" viewBox="0 0 40 44" aria-hidden="true"><path d="M3 2 36 21 22 24 29 36 21 41 14 28 5 38Z" fill="currentColor" stroke="#111815" strokeWidth="1.5" /></svg>
         </div>) : null}
       </div>

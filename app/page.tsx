@@ -19,7 +19,7 @@ export default function Home() {
           <p className="mt-5 flex items-center gap-2 text-xs text-muted-foreground"><MapPin className="size-3.5" aria-hidden="true" /> Dhaka, Bangladesh</p>
         </div>
         <div className="hero-portrait">
-          <div className="relative aspect-square overflow-hidden border-2 border-primary bg-[#142020] [border-radius:60%_40%_35%_65%/55%_40%_60%_45%] motion-safe:animate-[portrait-morph_8s_ease-in-out_infinite]">
+          <div className="relative aspect-square overflow-hidden border border-primary/60 bg-[#142020] [border-radius:60%_40%_35%_65%/55%_40%_60%_45%] motion-safe:animate-[portrait-morph_8s_ease-in-out_infinite]">
             <Image src="/images/ariq-arko-cutout.png" alt="Ariq Arko wearing a navy suit" fill priority unoptimized sizes="(min-width: 1024px) 360px, 72vw" className="object-cover object-[48%_top] [transform:scale(1.4)] [transform-origin:50%_0%]" />
           </div>
         </div>

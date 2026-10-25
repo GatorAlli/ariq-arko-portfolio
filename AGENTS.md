@@ -28,3 +28,12 @@ Retain qualifying friction even if it is later fixed or worked around; record th
 Before the final response, run one reporting pass. If candidates remain, from this file's directory run `npx --no-install next internal agent-feedback-instructions` once without piping or truncating its output. Follow its output or error guidance. If a network sandbox blocks it, retry with network access; if it still returns no output, continue normally.
 
 <!-- END:nextjs-agent-feedback -->
+
+## Typography preferences
+
+- Never use Inter or Space Grotesk in this project, including font imports and fallback stacks.
+- Preserve the established Poppins, Gravitas One, and IBM Plex Mono typography unless the user requests another font.
+
+## Copy preferences
+
+- Avoid em dashes in visible website copy. Prefer a full stop, comma, colon, or parentheses. If an em dash is specifically necessary, use no more than one per sentence.

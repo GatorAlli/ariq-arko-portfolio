@@ -36,7 +36,7 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
   const selected = items[selectedIndex];
 
   function thumbnail(item: GalleryItem, index: number) {
-    return <button key={item.label} type="button" aria-label={`Preview ${item.label}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={`relative aspect-video min-w-0 overflow-hidden border-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${selectedIndex === index ? "border-primary" : "border-border hover:border-primary/60"}`}>
+    return <button key={item.label} type="button" aria-label={`Preview ${item.label}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={`relative aspect-video min-w-0 overflow-hidden border transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${selectedIndex === index ? "border-primary/70" : "border-border hover:border-primary/50"}`}>
       <GalleryVisual item={item} thumbnail />
     </button>;
   }

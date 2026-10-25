@@ -10,7 +10,6 @@ const skills = [
 const softwareGroups = [
   {
     label: "Video Editing",
-    highlighted: true,
     programs: [
       { name: "Adobe Premiere Pro", logo: "premiere-pro", use: "Video editing" },
       { name: "CapCut", logo: "capcut", use: "Fast editing" },
@@ -18,12 +17,10 @@ const softwareGroups = [
   },
   {
     label: "Motion Graphics",
-    highlighted: false,
     programs: [{ name: "Adobe After Effects", logo: "after-effects", use: "Motion graphics" }],
   },
   {
     label: "Photo Editing",
-    highlighted: false,
     programs: [
       { name: "Adobe Photoshop", logo: "photoshop", use: "Photo editing" },
       { name: "Adobe Illustrator", logo: "illustrator", use: "Graphics & illustration" },
@@ -55,7 +52,7 @@ export function AboutSkills() {
           <h2 id="stack-heading" className={portfolioClass("section-title mb-10")}>My Stack</h2>
           <div className="flex flex-1 flex-col gap-4">
             {softwareGroups.map(group => (
-              <section key={group.label} aria-label={group.label} className={`flex flex-1 flex-col gap-4 border p-5 sm:p-6 ${group.highlighted ? "border-primary bg-primary/10" : "border-border bg-card"}`}>
+              <section key={group.label} aria-label={group.label} className="flex flex-1 flex-col gap-4 border border-border bg-card p-5 sm:p-6">
                 <h3 className="text-lg font-semibold leading-tight tracking-[-.015em] sm:text-xl">{group.label}</h3>
                 <ul className="flex flex-wrap gap-x-6 gap-y-4">
                   {group.programs.map(program => (

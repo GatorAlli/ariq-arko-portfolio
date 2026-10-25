@@ -23,8 +23,9 @@ export function FabricBackground() {
 
   return (
     <div className="fabric-background" aria-hidden="true">
-      <video ref={video} autoPlay muted loop playsInline preload="metadata" poster="/images/home-purple-texture.jpg" tabIndex={-1}>
-        <source src="/media/purple-satin-loop.mp4" type="video/mp4" />
+      <video ref={video} autoPlay muted loop playsInline preload="metadata" poster="/images/home-purple-satin-poster.webp" tabIndex={-1}>
+        <source media="(max-width: 767px)" src="/media/purple-satin-loop-mobile.mp4" type="video/mp4" />
+        <source src="/media/purple-satin-loop-hq.mp4" type="video/mp4" />
       </video>
     </div>
   );
