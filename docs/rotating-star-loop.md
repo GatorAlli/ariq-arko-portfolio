@@ -1,0 +1,1 @@
+Source: rotating-star.mp4. Seamless 240-frame loop at 24 fps. Cosine timing traverses the source forward and backward, easing to zero velocity at both turnarounds. The endpoint at 10 seconds equals the start frame. Original source retained.

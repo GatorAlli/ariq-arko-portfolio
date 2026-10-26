@@ -1,6 +1,6 @@
 # Ariq Arko Portfolio
 
-A dark portfolio for a Dhaka-based content creator and community builder. Built with Next.js 16.4.2 App Router, React 19.3, TypeScript, Tailwind CSS v4, and customized shadcn/Radix components.
+A single-page portfolio for university applications, built with Next.js, TypeScript, Tailwind CSS, and customized shadcn/ui components.
 
 ## Setup
 
@@ -14,30 +14,39 @@ npm ci
 npm run dev
 ```
 
-If already inside the repository, skip the `cd` command. Open the Local URL printed by Next.js, normally `http://localhost:3000`. To choose another port:
+Open the local URL printed by Next.js. Development uses Webpack and the official Tailwind PostCSS integration for Windows compatibility.
+
+For the static preview:
+
+```sh
+npm run build
+npm start
+```
+
+The build exports the website to `out/`. The preview runs at `http://localhost:4173` and supports video byte ranges.
+
+## One-page structure
+
+The landing page contains the introduction, selected achievements, About and skills, Experience, Recent Work, Awards, and Contact. About me includes the résumé popup and download. Navigation and search target `/#section` anchors. Project details appear only after View project is chosen. View résumé opens the actual PDF in an accessible popup on the main page, and Download PDF saves it. Old page URLs forward to their matching section.
+
+The presentation prioritizes verified roles, dates, achievements, and outcomes. Important numerical evidence is emphasized. Repeated introductory text and empty photo placeholders are omitted.
 
 ```sh
 npm run dev -- --port 3001
 ```
 
-No environment variables, database, API keys, or external services are needed. Fonts, images, PDFs, and portfolio data are local. The contact form opens a `mailto:` draft in the visitor's email application; the visitor sends it. The website does not deliver or store messages.
+The site uses a dark purple palette, Gravitas One for the identity, Sora for body text and bold Barlow Condensed for main section titles, and IBM Plex Mono navigation. Inter and Space Grotesk are prohibited. Hover text stays stationary while arrow icons rotate in place. Repeated records use spacing and columns instead of divider lines. The original portrait animation and star placement are retained. Curved chapter separators and one-time heading reveals provide restrained motion. Reduced motion uses still media, static curves, and immediately visible headings. The foundation brief is recorded in `docs/design-foundation.md`.
 
-Use `npm ci` for a reproducible install from `package-lock.json`. Use `npm install <package>` only when intentionally changing dependencies, and commit the updated lockfile.
+## Content and components
 
-## Commands
-
-Run these inside `ariq-arko-portfolio/`:
-
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the development server with Turbopack |
-| `npm run lint` | Run ESLint |
-| `npx tsc --noEmit` | Check TypeScript without emitting JavaScript |
-| `npm run build` | Build production output and generate route types |
-| `npm start` | Serve an existing production build |
-| `npm audit` | Check dependencies against npm advisories; requires network access |
-
-Production preview:
+- `lib/portfolio-data.json`: experience, awards, projects, events, and certifications.
+- `lib/portfolio.ts`: navigation, section introductions, contact details, and search entries.
+- `components/portfolio-section.tsx`: the main content sections.
+- `components/project-showcase.tsx`: selected work and inline case details.
+- `components/resume-viewer.tsx`: the actual résumé PDF popup used in About me.
+- `components/single-page-navigation.tsx`: expands details when following a project anchor.
+- `public/images/` and `public/media/`: local photos, artwork, and animations.
+- `docs/media-quality.md`: background generation prompt and media encoding details.
 
 ```sh
 npm run lint
@@ -46,65 +55,6 @@ npx tsc --noEmit
 npm start
 ```
 
-There is no automated test suite or CI workflow yet. For manual verification, check search and result links, mobile navigation and Escape, gallery thumbnails, contact validation, clipboard feedback, PDF downloads, and résumé print preview.
+Search opens with Ctrl K or Cmd K. Only the navigation stays sticky, with a small moving scroll-progress marker; the framed identity scrolls away. Mobile navigation has an expandable menu. Image galleries support keyboard selection. A floating arrow icon returns to the top after the introduction. Contact validates the required fields and prepares an email draft for the visitor to send. The website does not store or send messages.
 
-## File map
-
-| Location | Responsibility |
-| --- | --- |
-| `app/page.tsx` | Homepage, portrait, toolkit |
-| `app/layout.tsx` | Fonts, shared header, default metadata |
-| `app/[section]/page.tsx` | About, experience, work listing, awards, testimonials, contact |
-| `app/work/[slug]/page.tsx` | Individual project pages |
-| `app/resume/page.tsx` | Printable online résumé |
-| `app/globals.css` | Theme tokens, base styles, animations, print and reduced-motion rules |
-| `lib/portfolio-data.json` | Shared experience, projects, awards, certifications, events, participations, milestones |
-| `lib/portfolio.ts` | Data exports, contact details, navigation, page metadata, search index |
-| `lib/portfolio-styles.ts` | Semantic class names expanded into Tailwind utilities by `portfolioClass()` |
-| `components/` | Page sections and client interactions |
-| `components/ui/` | Customized shadcn/Radix primitives; configuration in `components.json` |
-| `public/images/`, `public/documents/` | Portraits, logos, certificate media, original PDFs |
-| `public/licenses/` | Local font licenses |
-| `.agents/skills/` | Project-specific skills for content, UI, and verification |
-
-The Git repository is this directory. The sibling `../visual-checks/` folder contains historical screenshots and comparison results; it is outside this repository and is not needed to run the app.
-
-## Routes
-
-| URL | Behavior |
-| --- | --- |
-| `/` | Homepage |
-| `/about`, `/experience`, `/work`, `/awards` | Main portfolio sections |
-| `/contact` | Contact details and email-draft form |
-| `/resume` | Current online résumé with print/download controls |
-| `/testimonials` | Empty state until real references are supplied |
-| `/skills` | Redirects to `/about#skills` |
-| `/work/freeland`, `/work/carnival`, `/work/dakkhinno`, `/work/duckpeon` | Project details |
-
-Unknown sections and projects render the custom not-found screen. With the current streaming setup, missing URLs can return HTTP 200 with `noindex`; `/skills` can redirect through the streamed response instead of a 3xx header. Check the rendered outcome as well as the status code.
-
-## Editing content and design
-
-- Update shared records in `lib/portfolio-data.json`; keep stable record IDs and project keys because search links and project URLs depend on them. Preserve the existing field shapes.
-- Skills/toolkit content lives in `components/about-skills.tsx` and `app/page.tsx`. Education and introductory copy also appear in the section and résumé pages.
-- Follow the source decisions in `CONTENT-AUDIT.md`: supplied corrections take precedence over the original résumé, Freeland's certificate establishes September 2026, unknown years stay omitted, and languages remain Bangla / English / Hindi unless new instructions change them.
-- The original résumé PDF is an archive and may differ from the online résumé. Use the résumé page's print action for current content.
-- Experience galleries and project pages retain labeled placeholders until real media is supplied. Preserve aspect ratios and meaningful alt text when replacing them. Keep font licenses and logo source notes with their assets.
-- The theme uses onyx `#080F0F`, purple `#AA00FF`, lime `#C6FF00`, and porcelain `#FDFFFC`. Gravitas One is the display face; Poppins is the body face; Neonderthaw is available for handwriting.
-- Inspect `portfolioClass()` before editing semantic styles: many generated utilities are important (`!`), so ordinary utility overrides may not win. The homepage primarily uses inline Tailwind utilities.
-
-## Agent skills
-
-Read `AGENTS.md`. Skills are stored locally and can be invoked as `$portfolio-content`, `$portfolio-ui`, and `$portfolio-checks`. Each skill has a `SKILL.md` and UI metadata under `agents/openai.yaml`; no global installation is required. If a session has not discovered a new skill yet, start a new session or read its file directly.
-
-## Build notes
-
-`next.config.ts` enables Cache Components, partial prefetching, and experimental agent feedback. Tailwind v4 compiles through `@tailwindcss/turbopack`; there is no PostCSS configuration. Use the documented Turbopack scripts unless deliberately changing the CSS build pipeline.
-
-- If a port is occupied, choose another port using `--port`.
-- `npm start` requires a successful `npm run build` first.
-- If generated route types are absent, run the build before the standalone TypeScript check.
-- If stale `.next` output causes errors, stop the project server, move `.next` aside, and rebuild. Never edit generated output or clear it while another process uses it.
-- A Turbopack error mentioning `binding to a port` / `Operation not permitted` can come from a restricted execution environment. Allow local worker ports; changing application source is not the fix. During this audit, a fresh build after moving the failed cache aside passed.
-
-See `PROJECT-AUDIT.md` for the latest project-wide review and remaining work. Deployment configuration and a production domain are not supplied; a host must support this Next.js runtime and build configuration.
+The résumé popup uses high-resolution pages rendered directly from the original PDF, with zoom and scrolling. The source PDF remains downloadable. After replacing the PDF, regenerate previews using `scripts/render-resume.py` with Python, pypdfium2, and Pillow.
