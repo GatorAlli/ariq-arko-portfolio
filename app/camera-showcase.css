@@ -19,10 +19,9 @@
 .camera-info summary { display: grid; place-items: center; width: 44px; height: 44px; list-style: none; color: #d7b6ef; cursor: pointer; }
 .camera-info summary::-webkit-details-marker { display: none; }
 .camera-info summary:hover, .camera-info[open] summary { color: #fff; }
-.camera-info summary:focus-visible, .camera-info-panel button:focus-visible { outline: 2px solid var(--chapter-ink); outline-offset: 2px; }
+.camera-info summary:focus-visible { outline: 2px solid var(--chapter-ink); outline-offset: 2px; }
 .camera-info-panel { position: absolute; top: 44px; right: 0; width: min(300px, calc(100vw - 72px)); padding: 16px; background: #140c1d; color: #d4c7df; box-shadow: 0 8px 32px #0008; font-size: 12px; line-height: 1.7; }
 .camera-info-panel a { color: #e7beff; text-decoration: underline; text-underline-offset: 3px; }
-.camera-info-panel button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; padding: 0; border: 0; background: none; color: #e7beff; font: inherit; cursor: pointer; }
 .camera-video-source { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); pointer-events: none; }
 .camera-video-fallback { width: 100%; height: 100%; object-fit: contain; background: #000; }
 .camera-webgl canvas { cursor: grab; touch-action: none; }

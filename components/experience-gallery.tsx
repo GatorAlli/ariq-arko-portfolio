@@ -37,6 +37,10 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
     "DAKKHINNO": [
       { label: "DAKKHINNO · Raising the Bangladesh flag", image: "/images/experience/dakkhinno-bangladesh-flag.jpg" },
     ],
+    "DRMC Events": [
+      { label: "DRMC Events · Carnival team holding an award on stage", image: "/images/experience/science-carnival-award-team.jpg" },
+      { label: "DRMC Events · Science Club members gathered on stage", image: "/images/experience/science-club-stage-team.jpg" },
+    ],
   };
   const photos: GalleryItem[] = supplied[organization] ?? [];
   const items: GalleryItem[] = [...certificates, ...photos];

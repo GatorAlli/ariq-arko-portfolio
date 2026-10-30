@@ -20,11 +20,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <dl className="admissions-highlights" aria-label="Selected achievements">
-        <div><dt>Global top 20</dt><dd>Diamond Challenge, out of 1,846 teams</dd></div>
-        <div><dt>8 community projects</dt><dd>Founding President, DAKKHINNO</dd></div>
-        <div><dt>Student leadership</dt><dd>College Prefect and DRMC Science Club Joint Secretary</dd></div>
-      </dl>
     </div>
     <PortfolioSection section="about" />
     <PortfolioSection section="experience" />
