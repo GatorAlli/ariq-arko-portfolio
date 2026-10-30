@@ -48,14 +48,11 @@ export default function CameraScene({ videoRefs, handleRef, selected, active, on
     canvas.setAttribute("aria-label", "3D camera. Drag or use arrow keys to rotate and tilt. Home resets the view. Enter watches the film.");
     container.appendChild(canvas);
     const scene = new THREE.Scene();
-    const tilt = new THREE.Group();
     const pivot = new THREE.Group();
     const body = new THREE.Group();
     // Center the complete supplied geometry, including the lens, before allowing rotation.
     pivot.add(body);
-    tilt.add(pivot);
-    scene.add(tilt);
-    let targetTiltY = 0, targetTiltZ = 0;
+    scene.add(pivot);
     const camera = new THREE.OrthographicCamera(-2.3, 2.3, 1.4, -1.4, .1, 40);
     camera.position.set(8, .22, .20);
     camera.lookAt(0, 0, 0);
@@ -77,18 +74,17 @@ export default function CameraScene({ videoRefs, handleRef, selected, active, on
       fromTheta = controls.getAzimuthalAngle(); fromPhi = controls.getPolarAngle(); returnStarted = performance.now(); returning = true; needsRender = true;
     };
     const change = () => { needsRender = true; };
-    const start = () => { interacting = true; returning = false; targetTiltY = targetTiltZ = 0; };
+    const start = () => { interacting = true; returning = false; };
     const end = () => { interacting = false; returnHome(); };
     controls.addEventListener("change", change);
     controls.addEventListener("start", start);
     controls.addEventListener("end", end);
-    const updateMotion = () => { if (motionPreference.matches) { targetTiltY = targetTiltZ = 0; tilt.rotation.set(0,0,0); if (returning) { controls.reset(); returning = false; } } needsRender = true; };
+    const updateMotion = () => { if (motionPreference.matches && returning) { controls.reset(); returning = false; } needsRender = true; };
     motionPreference.addEventListener('change',updateMotion);
     const keyboard = (event: KeyboardEvent) => {
       if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); onWatch?.(); return; }
       if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home'].includes(event.key)) return;
       event.preventDefault(); event.stopPropagation();
-      targetTiltY = targetTiltZ = 0;
       returning = false;
       if (event.key === 'Home') controls.reset();
       else if (event.key === 'ArrowLeft') controls.rotateLeft(.16);
@@ -128,7 +124,7 @@ export default function CameraScene({ videoRefs, handleRef, selected, active, on
       raycaster.setFromCamera(new THREE.Vector2((event.clientX-rect.left)/rect.width*2-1,1-(event.clientY-rect.top)/rect.height*2),camera);
       return screen.visible && raycaster.intersectObject(screen).length > 0;
     };
-    const pointerDown = (event: PointerEvent) => { pointerStart = [event.clientX,event.clientY]; dragged = false; targetTiltY = targetTiltZ = 0; };
+    const pointerDown = (event: PointerEvent) => { pointerStart = [event.clientX,event.clientY]; dragged = false; };
     const pointerUp = (event: PointerEvent) => {
       if (pointerStart && !dragged && Math.hypot(event.clientX-pointerStart[0],event.clientY-pointerStart[1])<5 && screenHit(event)) onWatch?.();
       pointerStart = null;
@@ -137,17 +133,10 @@ export default function CameraScene({ videoRefs, handleRef, selected, active, on
       if (pointerStart && Math.hypot(event.clientX-pointerStart[0],event.clientY-pointerStart[1])>5) dragged = true;
       if (!pointerStart) {
         canvas.style.cursor = screenHit(event) ? 'pointer' : 'grab';
-        if (event.pointerType === 'mouse' && !motionPreference.matches && !interacting) {
-          const rect = canvas.getBoundingClientRect();
-          targetTiltY = ((event.clientX-rect.left)/rect.width-.5)*.16;
-          targetTiltZ = ((event.clientY-rect.top)/rect.height-.5)*.12;
-          needsRender = true;
-        }
       }
     };
-    const pointerLeave = () => { targetTiltY = targetTiltZ = 0; needsRender = true; };
-    const pointerCancel = () => { pointerStart = null; pointerLeave(); };
-    canvas.addEventListener('pointerdown',pointerDown); canvas.addEventListener('pointerup',pointerUp); canvas.addEventListener('pointermove',pointerMove); canvas.addEventListener('pointerleave',pointerLeave); canvas.addEventListener('pointercancel',pointerCancel);
+    const pointerCancel = () => { pointerStart = null; };
+    canvas.addEventListener('pointerdown',pointerDown); canvas.addEventListener('pointerup',pointerUp); canvas.addEventListener('pointermove',pointerMove); canvas.addEventListener('pointercancel',pointerCancel);
     const glass = new THREE.Mesh(new THREE.PlaneGeometry(screenWidth, screenHeight), new THREE.MeshPhysicalMaterial({ color: 0xe9e5ef, metalness: 0, roughness: .12, clearcoat: 1, clearcoatRoughness: .08, transparent: true, opacity: .045, depthWrite: false }));
     glass.rotation.y = Math.PI / 2; glass.position.set(screenX + .007, screenY, screenZ); body.add(glass);
     const hudCanvas = document.createElement('canvas'); hudCanvas.width = 1024; hudCanvas.height = 1024;
@@ -303,12 +292,7 @@ transformed.x -= cameraPressWeight * 0.009;
       }
       const moving = Math.abs(pivot.rotation.x - targetRoll) > .001;
       if (moving) { pivot.rotation.x = motionPreference.matches ? targetRoll : THREE.MathUtils.lerp(pivot.rotation.x, targetRoll, .2); needsRender = true; }
-      if (Math.abs(tilt.rotation.y-targetTiltY)>.0001 || Math.abs(tilt.rotation.z-targetTiltZ)>.0001) {
-        tilt.rotation.y = motionPreference.matches ? 0 : THREE.MathUtils.lerp(tilt.rotation.y,targetTiltY,.14);
-        tilt.rotation.z = motionPreference.matches ? 0 : THREE.MathUtils.lerp(tilt.rotation.z,targetTiltZ,.14);
-        needsRender = true;
-      }
-      tilt.updateMatrixWorld(true); camera.updateMatrixWorld();
+      pivot.updateMatrixWorld(true); camera.updateMatrixWorld();
       let xExtent = 0, yExtent = 0;
       for (const corner of corners) { const point = corner.clone().applyMatrix4(pivot.matrixWorld).applyMatrix4(camera.matrixWorldInverse); xExtent = Math.max(xExtent,Math.abs(point.x)); yExtent = Math.max(yExtent,Math.abs(point.y)); }
       const targetWidth = Math.max(xExtent, yExtent * aspect) * 1.09;
@@ -337,7 +321,7 @@ transformed.x -= cameraPressWeight * 0.009;
       select.current = null; handleRef.current = null;
       controls.dispose(); canvas.removeEventListener('keydown', keyboard); canvas.removeEventListener('keyup',keyboardUp); canvas.removeEventListener('webglcontextlost', lost);
       motionPreference.removeEventListener('change',updateMotion);
-      canvas.removeEventListener('pointerdown',pointerDown); canvas.removeEventListener('pointerup',pointerUp); canvas.removeEventListener('pointermove',pointerMove); canvas.removeEventListener('pointerleave',pointerLeave); canvas.removeEventListener('pointercancel',pointerCancel);
+      canvas.removeEventListener('pointerdown',pointerDown); canvas.removeEventListener('pointerup',pointerUp); canvas.removeEventListener('pointermove',pointerMove); canvas.removeEventListener('pointercancel',pointerCancel);
       textures.forEach(texture => texture?.dispose()); posters.forEach(texture => texture?.dispose());
       screen.geometry.dispose(); material.dispose(); backing.geometry.dispose(); (backing.material as THREE.Material).dispose();
       glass.geometry.dispose(); (glass.material as THREE.Material).dispose(); hudTexture.dispose(); hud.geometry.dispose(); hudMaterial.dispose();
