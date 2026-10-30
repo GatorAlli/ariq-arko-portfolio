@@ -2,10 +2,15 @@
 
 A single-page portfolio for university applications, built with Next.js, TypeScript, Tailwind CSS, and customized shadcn/ui components.
 
-## Run locally
+## Setup
+
+Requirements: Node.js **20.9 or newer** (the installed Next.js package's minimum), npm, and registry access for the first install. The October 2026 audit used Node 26.0.0 and npm 11.12.1; the repository does not pin a runtime version.
+
+From the parent `Ariq Arko Portfolio` workspace:
 
 ```sh
-npm install
+cd ariq-arko-portfolio
+npm ci
 npm run dev
 ```
 
@@ -26,7 +31,9 @@ The landing page contains the introduction, selected achievements, About and ski
 
 The presentation prioritizes verified roles, dates, achievements, and outcomes. Important numerical evidence is emphasized. Repeated introductory text and empty photo placeholders are omitted.
 
-## Design
+```sh
+npm run dev -- --port 3001
+```
 
 The site uses a dark purple palette, Gravitas One for the identity, Sora for body text and bold Barlow Condensed for main section titles, and IBM Plex Mono navigation. Inter and Space Grotesk are prohibited. Hover text stays stationary while arrow icons rotate in place. Repeated records use spacing and columns instead of divider lines. The original portrait animation and star placement are retained. Curved chapter separators and one-time heading reveals provide restrained motion. Reduced motion uses still media, static curves, and immediately visible headings. The foundation brief is recorded in `docs/design-foundation.md`.
 
@@ -41,7 +48,12 @@ The site uses a dark purple palette, Gravitas One for the identity, Sora for bod
 - `public/images/` and `public/media/`: local photos, artwork, and animations.
 - `docs/media-quality.md`: background generation prompt and media encoding details.
 
-## Interactions
+```sh
+npm run lint
+npm run build
+npx tsc --noEmit
+npm start
+```
 
 Search opens with Ctrl K or Cmd K. Only the navigation stays sticky, with a small moving scroll-progress marker; the framed identity scrolls away. Mobile navigation has an expandable menu. Image galleries support keyboard selection. A floating arrow icon returns to the top after the introduction. Contact validates the required fields and prepares an email draft for the visitor to send. The website does not store or send messages.
 
