@@ -9,6 +9,24 @@
     "poster": "/media/personal/kella.webp"
   },
   {
+    "id": "living-lyfe-330",
+    "title": "Living lyfe on 330",
+    "width": 1280,
+    "height": 670,
+    "src": "/media/personal/living-lyfe-330.mp4",
+    "preview": "/media/personal/living-lyfe-330-preview.mp4",
+    "poster": "/media/personal/living-lyfe-330.webp"
+  },
+  {
+    "id": "good-man-broken-heart",
+    "title": "Why you wanna see a good man with a broken heart",
+    "width": 1276,
+    "height": 720,
+    "src": "/media/personal/good-man-broken-heart.mp4",
+    "preview": "/media/personal/good-man-broken-heart-preview.mp4",
+    "poster": "/media/personal/good-man-broken-heart.webp"
+  },
+  {
     "id": "nepal",
     "title": "NEPAL",
     "width": 1080,

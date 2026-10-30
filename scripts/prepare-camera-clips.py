@@ -30,12 +30,13 @@ def encode(item):
         subprocess.run(common + ['-t','12','-an','-vf',"scale='min(960,iw)':'min(960,ih)':force_original_aspect_ratio=decrease:force_divisible_by=2,fps=24",'-c:v','libx264','-threads','2','-preset','medium','-crf','25','-pix_fmt','yuv420p','-movflags','+faststart',str(preview)], check=True)
     if not poster.exists():
         subprocess.run(common + ['-ss','1','-frames:v','1','-vf',"scale='min(960,iw)':'min(960,ih)':force_original_aspect_ratio=decrease",'-quality','85',str(poster)], check=True)
-    dimensions = {'kella': (1920,1080), 'nepal': (1080,1920), 'readers': (720,1280), 'study': (1080,1920)}
+    dimensions = {'kella': (1920,1080), 'living-lyfe-330': (1280,670), 'good-man-broken-heart': (1276,720), 'nepal': (1080,1920), 'readers': (720,1280), 'study': (1080,1920)}
     width,height = dimensions[slug]
     return {'id':slug,'title':title,'width':width,'height':height,'src':f'/media/personal/{slug}.mp4','preview':f'/media/personal/{slug}-preview.mp4','poster':f'/media/personal/{slug}.webp'}
 
 if __name__ == '__main__':
-    clips = [('kella','.mov','KELLA'),('nepal','.mp4','NEPAL'),('readers','.mp4','Readers'),('study','.mp4','Study')]
+    # Keep horizontal films before portrait reels in the camera's playback order.
+    clips = [('kella','.mov','KELLA'),('living-lyfe-330','.mp4','Living lyfe on 330'),('good-man-broken-heart','.mp4','Why you wanna see a good man with a broken heart'),('nepal','.mp4','NEPAL'),('readers','.mp4','Readers'),('study','.mp4','Study')]
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
         results = list(pool.map(encode, clips))
     (ROOT / 'lib/camera-clips.json').write_text(json.dumps(results,indent=2)+'\n',encoding='utf-8')
