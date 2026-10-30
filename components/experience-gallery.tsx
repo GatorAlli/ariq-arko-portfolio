@@ -28,8 +28,6 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
       { label: "DRMC Science Club · National Science Carnival team", image: "/images/experience/science-carnival.jpg" },
       { label: "DRMC Science Club · Celebrating together", image: "/images/experience/science-celebration.jpg" },
       { label: "DRMC Science Club · Club team", image: "/images/experience/science-team.jpg" },
-      { label: "DRMC Science Club team holding an award on stage", image: "/images/experience/science-carnival-award-team.jpg" },
-      { label: "DRMC Science Club members gathered on stage with the club banner", image: "/images/experience/science-club-stage-team.jpg" },
     ],
     "Duckpeon Digital": [
       { label: "Duckpeon Digital team gathered outdoors", image: "/images/experience/duckpeon-team.jpg" },
