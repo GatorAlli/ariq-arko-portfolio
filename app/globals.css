@@ -387,9 +387,8 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height, 140px
 .resume-intro p { margin-top: 12px; color: var(--muted-foreground); }
 .resume-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .resume-pdf-dialog { display: flex; flex-direction: column; width: min(1120px, calc(100vw - 32px)); max-width: calc(100vw - 32px); height: min(960px, calc(100dvh - 32px)); gap: 16px; padding: 20px; border-radius: 2px; background: #120b1c; }
-.resume-pdf-header { flex-direction: row; align-items: center; justify-content: space-between; gap: 16px; padding-right: 44px; }
+.resume-pdf-header { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-right: 44px; }
 .resume-pdf-header [data-slot="dialog-title"] { font-family: var(--font-body), sans-serif; font-size: 22px; line-height: 1.4; }
-.resume-pdf-download { color: #e6c5ff; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
 .resume-pdf-tools { display: flex; align-items: center; gap: 12px; font-size: 14px; }
 .resume-pdf-tools select { min-height: 40px; padding: 4px 12px; color: #f7efff; background: #21142c; border: 1px solid #654677; border-radius: 2px; }
 .resume-pdf-pages { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; background: #29242e; }
@@ -404,11 +403,9 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height, 140px
 .languages-block { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 20px; margin-top: 24px; padding-top: 8px; }
 .languages-block h3 { font-size: 18px; font-weight: 600; }
 .languages-block ul { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 0; list-style: none; color: #d5cddd; font-size: 16px; }
-.resume-cta, .resume-download { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 52px; padding: 12px 24px; border: 1px solid #c875ff; border-radius: 2px; font-size: 16px; font-weight: 600; line-height: 1.5; transition: background-color 160ms ease, border-color 160ms ease; }
-.resume-cta { background: #8e00d8; color: white; }
-.resume-cta:hover { background: #7400b8; border-color: #e1baff; }
-.resume-download { background: rgb(8 5 14 / .65); color: #e1baff; }
-.resume-download:hover { background: #201027; border-color: #e1baff; }
+.resume-cta, .resume-pdf-download { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 52px; padding: 12px 24px; border: 1px solid #c875ff; border-radius: 2px; font-size: 16px; font-weight: 600; line-height: 1.5; background: #8e00d8; color: white; transition: background-color 160ms ease, border-color 160ms ease; }
+.resume-cta:hover, .resume-pdf-download:hover { background: #7400b8; border-color: #e1baff; }
+.resume-pdf-download { min-width: 180px; font-size: 18px; text-decoration: none; }
 .experience-intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(240px, .75fr); align-items: center; gap: clamp(32px, 5vw, 80px); padding: 12px var(--page-gutter) 40px; margin-bottom: 24px; }
 .experience-intro-lead { max-width: 48ch; margin-top: 20px; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.7; color: #d5cddd; }
 .school-story { max-width: 55ch; margin-top: 28px; padding-top: 8px; }
@@ -458,7 +455,10 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height, 140px
  .experience-intro-photo { justify-self: center; width: min(100%, 320px); }
  .school-story { margin-top: 24px; padding-top: 8px; }
  .languages-block { margin-top: 20px; }
- .resume-cta, .resume-download { width: 100%; gap: 16px; padding-inline: 18px; font-size: 15px; }
+ .resume-cta { width: 100%; gap: 16px; padding-inline: 18px; font-size: 15px; }
+ .resume-pdf-header { gap: 12px; padding-right: 0; }
+ .resume-pdf-header [data-slot="dialog-title"] { padding-right: 44px; }
+ .resume-pdf-download { flex-basis: 100%; width: 100%; min-width: 0; font-size: 17px; }
  .resume-actions { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {

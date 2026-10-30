@@ -76,6 +76,8 @@ The mobile header is pitch black at the top and while sticky. Its shared directo
 
 The aa. wordmark is a Refresh page button. The separate floating arrow owns back-to-top navigation.
 
+About me has only the View résumé button. Download PDF appears inside the résumé popup as a prominent violet button with larger text and a 52px minimum height. On phones it fills a separate header row, leaving the title and Close control unobstructed. Preserve the original PDF download and zoom controls.
+
 The contact message field starts at one content line, with its bottom rule directly beneath the placeholder. Grow and shrink it with entered text, wrapped lines, font loading, and viewport width. Keep all text visible without an inner scrollbar or manual resize handle; retain the native label, focus treatment, and validation.
 
 The What I excel at and My Stack headings use larger pale-violet Archivo Black at 30–50px. The work chapter is named Recent work. The floating back-to-top button uses the circular upward chevron from the user reference. Omit the small email-app instruction beside Prepare email.
