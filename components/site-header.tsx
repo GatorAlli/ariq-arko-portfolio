@@ -18,6 +18,7 @@ export function SiteHeader() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const header = useRef<HTMLElement>(null);
+  const menuToggle = useRef<HTMLButtonElement>(null);
   const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const results = words.length ? searchEntries.filter(entry => words.every(word => `${entry.label} ${entry.description}`.toLowerCase().includes(word))) : searchEntries.slice(1, 5);
 
@@ -59,6 +60,18 @@ export function SiteHeader() {
   }, [pathname]);
 
   useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuToggle.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
+
+  useEffect(() => {
     function onKey(event: KeyboardEvent) {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
@@ -72,11 +85,11 @@ export function SiteHeader() {
   return (
     <><div id="top" aria-hidden="true" /><header ref={header} data-active-section={activeSection || "intro"} data-menu-open={menuOpen} className={`directory-header${scrollProgress > .002 ? " is-scrolled" : ""}`} onClick={event => { if (event.target instanceof Element && event.target.closest("a")) setMenuOpen(false); }}>
       <div className="directory-inner">
-        <div className="directory-identity"><a href={pathname === "/" ? "#top" : "/#top"} className="directory-wordmark" aria-label="Ariq Arko home">aa.</a></div>
-        <button type="button" className="directory-menu-toggle" aria-expanded={menuOpen} aria-controls="main-navigation social-navigation" onClick={() => setMenuOpen(open => !open)}>{menuOpen ? "Close" : "Menu"}</button>
-        <nav id="main-navigation" className="directory-group" aria-label="Main navigation"><span className="directory-label">Explore</span><div className="directory-links">{navigation.map(item => <a key={item.href} href={item.href} aria-current={activeSection === item.href.slice(2) ? "location" : undefined}>{item.label}<span className="nav-link-arrow" aria-hidden="true" /></a>)}</div></nav>
-        <nav id="social-navigation" className="directory-group" aria-label="Social profiles"><span className="directory-label">Contact</span><div className="directory-links"><a href="https://www.instagram.com/ariqqarko" target="_blank" rel="noopener noreferrer">Instagram<span className="nav-link-arrow" aria-hidden="true" /></a><a href="https://www.facebook.com/share/1DLkv2CoUD/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook<span className="nav-link-arrow" aria-hidden="true" /></a><a href="https://www.linkedin.com/in/ariqarko-/" target="_blank" rel="noopener noreferrer">LinkedIn<span className="nav-link-arrow" aria-hidden="true" /></a></div></nav>
-        <div className="directory-actions"><a href={pathname === "/" ? "#contact" : "/#contact"} className={portfolioClass("contact-orbit")} aria-current={activeSection === "contact" ? "location" : undefined}><span className="contact-label">Get in touch<span className="nav-link-arrow" aria-hidden="true" /></span></a></div>
+        <div className="directory-identity"><button type="button" className="directory-wordmark" aria-label="Refresh page" title="Refresh page" onClick={() => window.location.reload()}>aa.</button></div>
+        <button ref={menuToggle} type="button" className="directory-menu-toggle" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="main-navigation social-navigation" onClick={() => setMenuOpen(open => !open)}><span>{menuOpen ? "Close" : "Menu"}</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></button>
+        <nav id="main-navigation" className="directory-group" aria-label="Main navigation"><span className="directory-label">Explore</span><div className="directory-links">{navigation.map(item => <a key={item.href} href={item.href} className="hover-target" aria-current={activeSection === item.href.slice(2) ? "location" : undefined}><span className="hover-label">{item.label}</span><span className="nav-link-arrow" aria-hidden="true" /></a>)}</div></nav>
+        <nav id="social-navigation" className="directory-group" aria-label="Social profiles"><span className="directory-label">Contact</span><div className="directory-links"><a className="hover-target" href="https://www.instagram.com/ariqqarko" target="_blank" rel="noopener noreferrer"><span className="hover-label">Instagram</span><span className="nav-link-arrow" aria-hidden="true" /></a><a className="hover-target" href="https://www.facebook.com/share/1DLkv2CoUD/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"><span className="hover-label">Facebook</span><span className="nav-link-arrow" aria-hidden="true" /></a><a className="hover-target" href="https://www.linkedin.com/in/ariqarko-/" target="_blank" rel="noopener noreferrer"><span className="hover-label">LinkedIn</span><span className="nav-link-arrow" aria-hidden="true" /></a></div></nav>
+        <div className="directory-actions"><a href={pathname === "/" ? "#contact" : "/#contact"} className={`${portfolioClass("contact-orbit")} hover-target`} aria-current={activeSection === "contact" ? "location" : undefined}><span className="contact-label"><span className="contact-button-text hover-label">Get in touch</span><span className="nav-link-arrow" aria-hidden="true" /></span></a></div>
         <Dialog open={searchOpen} onOpenChange={setSearchOpen}>
           <DialogContent className={portfolioClass("search-dialog")}>
             <DialogHeader><DialogTitle>Find your way.</DialogTitle><DialogDescription>Search work, experience, skills, and more.</DialogDescription></DialogHeader>

@@ -1,14 +1,51 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useLayoutEffect, useRef, useState, type FormEvent } from "react";
 import { email } from "@/lib/portfolio";
 
 type FieldErrors = Partial<Record<"name" | "email" | "reason" | "message", string>>;
+
+function resizeMessage(field: HTMLTextAreaElement) {
+  if (CSS.supports("field-sizing", "content")) {
+    field.style.removeProperty("height");
+    return;
+  }
+  field.style.height = "auto";
+  const style = window.getComputedStyle(field);
+  const borders = (parseFloat(style.borderTopWidth) || 0) + (parseFloat(style.borderBottomWidth) || 0);
+  field.style.height = `${Math.ceil(field.scrollHeight + borders)}px`;
+}
+
 export function ContactForm() {
+  const messageField = useRef<HTMLTextAreaElement>(null);
   const [reason, setReason] = useState("");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [prepared, setPrepared] = useState(false);
   const [draft, setDraft] = useState("");
+  useLayoutEffect(() => {
+    const field = messageField.current;
+    if (!field) return;
+    resizeMessage(field);
+    if (CSS.supports("field-sizing", "content")) return;
+    let disposed = false;
+    let previousWidth = field.clientWidth;
+    const resize = () => { if (!disposed) resizeMessage(field); };
+    const observer = new ResizeObserver(() => {
+      if (field.clientWidth === previousWidth) return;
+      previousWidth = field.clientWidth;
+      resize();
+    });
+    observer.observe(field);
+    window.addEventListener("resize", resize);
+    document.fonts.ready.then(resize);
+    document.fonts.addEventListener("loadingdone", resize);
+    return () => {
+      disposed = true;
+      observer.disconnect();
+      window.removeEventListener("resize", resize);
+      document.fonts.removeEventListener("loadingdone", resize);
+    };
+  }, []);
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -44,11 +81,11 @@ export function ContactForm() {
       </div>
       <fieldset className="contact-topic" aria-describedby={errors.reason ? "reason-error" : undefined}>
         <legend>What’s it about? <span aria-hidden="true">*</span></legend>
-        <div className="contact-topic-options">{["Project", "Hiring", "Research collaboration", "Other"].map(value => <label key={value}><input type="radio" name="reason" id={value === "Project" ? "reason" : undefined} value={value} checked={reason === value} onChange={() => setReason(value)} required aria-invalid={!!errors.reason} /><span>{value}</span></label>)}</div>
+        <div className="contact-topic-options">{["Project", "Hiring", "Research collaboration", "Other"].map(value => <label key={value}><input type="radio" name="reason" id={value === "Project" ? "reason" : undefined} value={value} checked={reason === value} onChange={() => setReason(value)} required /><span>{value}</span></label>)}</div>
         {errors.reason ? <p id="reason-error" className="contact-error" role="alert">{errors.reason}</p> : null}
       </fieldset>
-      <div className="contact-field"><label htmlFor="message">Message <span aria-hidden="true">*</span></label><textarea id="message" name="message" placeholder="A little about your idea, project, or opportunity…" required maxLength={5000} rows={4} aria-invalid={!!errors.message} aria-describedby={errors.message ? "message-error" : undefined} />{errors.message ? <p id="message-error" className="contact-error" role="alert">{errors.message}</p> : null}</div>
-      <div className="contact-send"><button type="submit">Prepare email</button><p>All fields required. Finish sending the draft in your email app.</p></div>
+      <div className="contact-field"><label htmlFor="message">Message <span aria-hidden="true">*</span></label><textarea ref={messageField} id="message" name="message" placeholder="A little about your idea, project, or opportunity…" required maxLength={5000} rows={1} onInput={event => resizeMessage(event.currentTarget)} aria-invalid={!!errors.message} aria-describedby={errors.message ? "message-error" : undefined} />{errors.message ? <p id="message-error" className="contact-error" role="alert">{errors.message}</p> : null}</div>
+      <div className="contact-send"><button type="submit">Prepare email</button></div>
       {prepared ? <div className="contact-confirmation" role="status"><strong>Your email draft is ready.</strong><p>Finish sending it in your email app. If it didn’t open, <a href={draft}>open the draft again</a> or email <a href={`mailto:${email}`}>{email}</a>.</p></div> : null}
     </form>
   );

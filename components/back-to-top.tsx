@@ -10,7 +10,7 @@ export function BackToTop() {
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
   }, []);
-  return <a href="/#top" className={`back-to-top${visible ? " is-visible" : ""}`} aria-label="Back to top" title="Back to top" aria-hidden={!visible} tabIndex={visible ? 0 : -1}>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+  return <a href="#top" className={`back-to-top${visible ? " is-visible" : ""}`} aria-label="Back to top" title="Back to top" aria-hidden={!visible} tabIndex={visible ? 0 : -1}>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 14 6-6 6 6" /></svg>
   </a>;
 }

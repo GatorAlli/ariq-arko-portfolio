@@ -1,0 +1,47 @@
+.camera-showcase { width: min(100% - var(--page-gutter) * 2, 960px); margin: 0 auto; }
+.camera-stage-shell { position: relative; isolation: isolate; aspect-ratio: 1.7; width: 100%; }
+.camera-instant-poster { object-fit: contain; scale: 1.07; pointer-events: none; opacity: 1; transition: opacity 200ms ease; }
+.camera-stage-shell[data-ready="true"] .camera-instant-poster { opacity: 0; }
+.camera-webgl { position: absolute; inset: 0; opacity: 0; transition: opacity 500ms ease; }
+.camera-stage-shell[data-ready="true"] .camera-webgl { opacity: 1; }
+.camera-webgl canvas { width: 100%; height: 100%; display: block; }
+.camera-webgl { filter: drop-shadow(0 24px 20px #0009); }
+.camera-wheel-button { position: absolute; z-index: 2; translate: -50% -50%; width: clamp(20px, 3vw, 32px); height: clamp(24px, 4vw, 44px); border: 0; border-radius: 50%; padding: 0; appearance: none; background: transparent; box-shadow: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.camera-wheel-button:hover, .camera-wheel-button:active { background: transparent; box-shadow: none; }
+.camera-wheel-button:focus-visible { outline: 2px solid var(--chapter-ink); outline-offset: 1px; }
+.camera-step { position: absolute; z-index: 2; top: 50%; translate: 0 -50%; width: 48px; height: 48px; display: grid; place-items: center; padding: 0; color: var(--chapter-ink); background: none; border: 0; border-radius: 50%; cursor: pointer; transition: color 180ms ease; }
+.camera-step-previous { left: 0; }
+.camera-step-next { right: 0; }
+.camera-step:hover { color: #fff; }
+.camera-step:focus-visible { outline: 2px solid var(--chapter-ink); outline-offset: 4px; }
+.camera-step:active svg { scale: .9; }
+.camera-info { position: absolute; z-index: 4; top: 8px; right: 8px; }
+.camera-info summary { display: grid; place-items: center; width: 44px; height: 44px; list-style: none; color: #d7b6ef; cursor: pointer; }
+.camera-info summary::-webkit-details-marker { display: none; }
+.camera-info summary:hover, .camera-info[open] summary { color: #fff; }
+.camera-info summary:focus-visible, .camera-info-panel button:focus-visible { outline: 2px solid var(--chapter-ink); outline-offset: 2px; }
+.camera-info-panel { position: absolute; top: 44px; right: 0; width: min(300px, calc(100vw - 72px)); padding: 16px; background: #140c1d; color: #d4c7df; box-shadow: 0 8px 32px #0008; font-size: 12px; line-height: 1.7; }
+.camera-info-panel a { color: #e7beff; text-decoration: underline; text-underline-offset: 3px; }
+.camera-info-panel button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; padding: 0; border: 0; background: none; color: #e7beff; font: inherit; cursor: pointer; }
+.camera-video-source { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); pointer-events: none; }
+.camera-video-fallback { width: 100%; height: 100%; object-fit: contain; background: #000; }
+.camera-webgl canvas { cursor: grab; touch-action: none; }
+.camera-webgl canvas:active { cursor: grabbing; }
+.camera-webgl canvas:focus-visible { outline: 2px solid var(--chapter-ink); outline-offset: -4px; }
+.camera-media-message { font-size: 14px; color: var(--muted-foreground); margin-top: 16px; }
+.camera-media-message a { color: var(--chapter-ink); text-decoration: underline; }
+.film-viewer-dialog { display: flex; flex-direction: column; width: calc(100vw - 32px); max-width: 1440px; height: calc(100dvh - 32px); max-height: 1000px; padding: 4px; gap: 0; background: #08060c; border-radius: 2px; overflow: hidden; }
+.film-viewer-dialog > [data-slot="dialog-close"] { z-index: 2; background: rgb(8 6 12 / .85); color: white; border-radius: 50%; }
+.film-viewer-video { display: block; width: 100%; min-height: 0; flex: 1; object-fit: contain; background: #000; }
+@media (max-width: 600px) {
+
+  .camera-stage-shell { aspect-ratio: 1.45; }
+  .camera-step { top: auto; bottom: 6px; translate: none; width: 44px; height: 44px; }
+  .camera-wheel-button { width: 20px; height: 28px; }
+  .film-viewer-dialog { width: calc(100vw - 16px); max-width: calc(100vw - 16px); height: calc(100dvh - 24px); padding: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .camera-webgl, .camera-instant-poster { transition: none; }
+}
+
+.camera-screen-open:focus-visible { position: absolute; z-index: 3; bottom: 4%; left: 50%; translate: -50% 0; width: auto; height: auto; margin: 0; padding: 8px 12px; overflow: visible; clip: auto; clip-path: none; white-space: nowrap; background: #08060c; color: var(--chapter-ink); outline: 2px solid var(--chapter-ink); }

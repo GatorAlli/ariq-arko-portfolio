@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Original media and local conversion tools; publish optimized assets only.
+/.media-source/
+/.media-tools/
+/public/media/projects/*.encoding.mp4
+/scripts/__pycache__/

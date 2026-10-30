@@ -31,8 +31,8 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
     ],
   };
   const photos: GalleryItem[] = supplied[organization] ?? [];
-  const items: GalleryItem[] = [...photos, ...certificates];
-  const [selectedIndex, setSelectedIndex] = useState(certificates.length ? photos.length : 0);
+  const items: GalleryItem[] = [...certificates, ...photos];
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const selected = items[selectedIndex];
   if (!selected) return null;
 
@@ -49,8 +49,8 @@ export function ExperienceGallery({ organization, certificates = [] }: { organiz
       </div>
     </div>
     <div className="min-w-0 space-y-4">
-      {photos.length ? <div className="grid grid-cols-3 gap-3 sm:grid-cols-1" aria-label="Experience photos">{photos.map(thumbnail)}</div> : null}
-      {certificates.length ? <div className="space-y-3"><h3 className="text-xs font-medium tracking-wide">Certification</h3><div className="grid grid-cols-3 gap-3 sm:grid-cols-1">{certificates.map((item, index) => thumbnail(item, photos.length + index))}</div></div> : null}
+      {certificates.length ? <div className="space-y-3"><h3 className="text-xs font-medium tracking-wide">Certification</h3><div className="grid grid-cols-3 gap-3 sm:grid-cols-1">{certificates.map((item,index)=>thumbnail(item,index))}</div></div> : null}
+      {photos.length ? <div className="grid grid-cols-3 gap-3 sm:grid-cols-1" aria-label="Experience photos">{photos.map((item,index)=>thumbnail(item,certificates.length+index))}</div> : null}
     </div>
   </div>;
 }

@@ -7,12 +7,12 @@ import { ContactForm } from "@/components/contact-form";
 import { CopyEmail } from "@/components/page-actions";
 import { PageIntro } from "@/components/portfolio-layout";
 import { PortfolioRecords } from "@/components/portfolio-records";
-import { ProjectShowcase } from "@/components/project-showcase";
 import { EvidenceText } from "@/components/evidence-text";
 import { ChapterCurve } from "@/components/chapter-curve";
 import { RevealHeading } from "@/components/reveal-heading";
 import { ResumeViewer } from "@/components/resume-viewer";
-import { certifications, events, participations, milestones, awards, email, phone, experience, pageInfo, type PageSlug } from "@/lib/portfolio";
+import { WorkShowcase } from "@/components/work-showcase";
+import { certifications, events, participations, awards, email, phone, experience, pageInfo, type PageSlug } from "@/lib/portfolio";
 
 export function PortfolioSection({ section }: { section: PageSlug }) {
   const info = pageInfo[section];
@@ -49,9 +49,9 @@ export function PortfolioSection({ section }: { section: PageSlug }) {
           </div>
         </article>)}
       </section> : null}
+      {section === "work" ? <WorkShowcase /> : null}
       {section === "experience" ? <PortfolioRecords id="event-contributions" title="Volunteer leadership & events" items={events} /> : null}
-      {section === "about" ? <><AboutSkills /><PortfolioRecords id="personal-milestones" title="Beyond the everyday" items={milestones} /></> : null}
-      {section === "work" ? <ProjectShowcase /> : null}
+      {section === "about" ? <AboutSkills /> : null}
       {section === "awards" ? <><PortfolioRecords id="honors" title="Honors & achievements" items={awards} /><PortfolioRecords id="certifications" title="Awards & certifications" items={certifications} /><PortfolioRecords id="participations" title="Event participation & competitions" items={participations} /></> : null}
       {section === "testimonials" ? <section className={portfolioClass("empty-editorial page-padding section-space")}><h2 className={portfolioClass("section-title")}>Good work starts<br />with good people.</h2><p className={portfolioClass("body-large text-muted-foreground")}>Words from collaborators will be shared here soon.</p><p>For references or a conversation about working together, get in touch.</p><Button asChild className={portfolioClass("editorial-button lime-button")}><a href="#contact">Let’s connect</a></Button></section> : null}
       {section === "contact" ? <section className="contact-page" aria-labelledby="contact-heading">

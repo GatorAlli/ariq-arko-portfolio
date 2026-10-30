@@ -33,7 +33,7 @@ export function AboutSkills() {
     <section id="skills" aria-labelledby="excel-heading stack-heading" className={portfolioClass("page-padding section-space")}>
       <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
         <div className="flex flex-col">
-          <h2 id="excel-heading" className={portfolioClass("section-title mb-6")}>What I excel at</h2>
+          <h2 id="excel-heading" className="skills-heading">What I excel at</h2>
           <div className="flex flex-col gap-7">
           {skills.map(([title, capabilities, copy]) => (
             <article key={title}>
@@ -48,7 +48,7 @@ export function AboutSkills() {
           </div>
         </div>
         <div className="flex flex-col">
-          <h2 id="stack-heading" className={portfolioClass("section-title mb-6")}>My Stack</h2>
+          <h2 id="stack-heading" className="skills-heading">My Stack</h2>
           <div className="flex flex-col gap-4">
             {softwareGroups.map(group => (
               <section key={group.label} aria-label={group.label} className="flex flex-col gap-4 bg-card p-5 sm:p-6">

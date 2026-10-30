@@ -8,5 +8,3 @@ export function PageIntro({ title, intro, level = 1, headingId }: { title: strin
   const Heading = level === 1 ? "h1" : "h2";
   return <div className={portfolioClass("page-intro page-padding [&_.page-title]:mt-0!")}><Heading id={headingId} className={portfolioClass("page-title")}>{title}</Heading><p className={portfolioClass("page-description")}>{intro}</p></div>;
 }
-
-export function SiteFooter() { return null; }

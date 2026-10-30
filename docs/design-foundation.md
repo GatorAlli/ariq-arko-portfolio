@@ -18,7 +18,7 @@ The user's `C:/Users/nadid/Downloads/message (1).txt` is the foundation brief. I
 - Work images carry a prominent organization/event name above the image. Omit the small date caption underneath; dates remain in the detailed evidence.
 - A subtle background shade follows the active chapter: lighter in the introduction, darker for evidence-heavy experience, recognition, résumé, and contact. Preserve fabric motion without competing with text.
 - No role kicker above the hero heading. Use an 8/16/24/32/48 spacing rhythm; do not stack padding on top of an existing content gap.
-- After testing three title directions, use uppercase Barlow Condensed 700 in solid pale violet for main chapter titles. Use Sora 400–600 for readable body text and secondary headings. The earlier Fraunces/Sora pairing remains recorded as a study, not the current chapter style. Keep Gravitas One only for the identity and IBM Plex Mono for navigation.
+- The current user-requested trial uses uppercase Archivo Black 400 in solid pale violet for main chapter and category titles, paired with DM Sans for body text and smaller subsection selectors. Barlow Condensed and Sora are retained as earlier font explorations. The earlier Fraunces/Sora pairing remains recorded as a study, not the current chapter style. Keep Gravitas One only for the identity and IBM Plex Mono for navigation.
 - Icon-only floating back-to-top control, prominent résumé access, accessible forms and focus states.
 - Only the navigation stays sticky; the title and star scroll away. Its progress animation is a small violet marker with a short trail. Mobile navigation collapses into a compact menu.
 - About me contains View résumé, opening the actual PDF inside an accessible popup on the same page, alongside Download PDF. There is no separate Résumé section. Download PDF saves it. No arrow decorations, explanatory résumé strapline, or duplicated online text résumé.
@@ -40,6 +40,6 @@ These inform hierarchy and pacing. Their content and visual assets are not copie
 
 Compared a condensed film title card, a larger two-line Fraunces editorial treatment, and a bold two-line Sora treatment. The film title card provides the strongest separation from body copy and connects to Ariq's filmmaking work. Applied it consistently to About, Experience, Work, Recognition, and Contact, while preserving the framed Gravitas identity.
 
-Runtime mapping: `app/layout.tsx` owns the self-hosted Barlow font through `--font-chapter`; `app/globals.css` owns `--chapter-ink`, `--chapter-size`, and `.section-title-text`. `PageIntro` and the custom chapter openings reuse this same class and existing reveal behavior. No badges, numbers, outline-only text, gradient lettering, panels, or extra copy.
+Runtime mapping: `app/layout.tsx` owns the self-hosted Archivo Black font through `--font-chapter`; `app/globals.css` owns `--chapter-ink`, `--chapter-size`, and `.section-title-text`. `PageIntro` and the custom chapter openings reuse this same class and existing reveal behavior. No badges, numbers, outline-only text, gradient lettering, panels, or extra copy.
 
 References: [Ochi](https://ochi.design/) for bold condensed type and scale; [Awwwards / Longfellow](https://www.awwwards.com/inspiration/typography-longfellow) for large display typography. These are directional references; no assets or page layouts are copied.

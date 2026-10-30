@@ -22,6 +22,13 @@
         "Co-hosted the 17th DRMC National Science & Codeavour International Carnival 2026: over 50,000 visitors across three days on the 52-acre campus, with 10,000+ participants competing in ten sectors.",
         "Worked with the leadership panel to secure major sponsors and institutional partners.",
         "Served as sole host for seven seminars and workshops, including co-organizing and hosting DRMC’s inaugural TEDx Talk."
+      ],
+      "certificates": [
+        {
+          "id": "drmc-joint-secretary-certificate",
+          "label": "DRMC Science Club · Joint Secretary certificate for Ariq Arko",
+          "image": "/images/certificates/drmc-joint-secretary.png"
+        }
       ]
     },
     {
@@ -38,7 +45,14 @@
       "date": "Mar 2024 – Present",
       "role": "Founding President",
       "org": "DAKKHINNO",
-      "body": "Founded a social organization and led eight community projects, including wall art, awareness campaigns, and food drives. Coordinated people and operations from the ground up."
+      "body": "Founded a social organization and led eight community projects, including wall art, awareness campaigns, and food drives. Coordinated people and operations from the ground up.",
+      "certificates": [
+        {
+          "id": "dakkhinno-certificate",
+          "label": "DAKKHINNO · Certificate of Appreciation for Ariq Arko, Founding President",
+          "image": "/images/certificates/dakkhinno-founding-president.png"
+        }
+      ]
     },
     {
       "date": "Dec 2023 – Present",
